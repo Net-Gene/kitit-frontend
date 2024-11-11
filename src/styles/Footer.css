@@ -1,0 +1,47 @@
+/* Yleinen alatunnisteen muotoilu */
+.footer {
+  background-color: #333; /* Tumma taustaväri */
+  color: white;            /* White text color */
+  padding: 20px 0;         /* Vertical padding for spacing */
+  text-align: center;      /* Tasaa sisältö keskelle */
+}
+
+/* Alatunnisteen sisällön säilö */
+.footer-content {
+  max-width: 1200px;       /* Suurin leveys suurille näytöille */
+  margin: 0 auto;          /* Keskitä sisältö */
+  padding: 0 20px;         /* Pehmuste reagointikykyyn */
+}
+
+/* Tekijänoikeustekstin tyyli */
+.footer p {
+  font-size: 14px;         /* Pieni fonttikoko */
+  margin: 0;               /* Poista oletusmarginaali */
+}
+
+/* Alatunnisteen linkkien luettelotyyli */
+.footer-links {
+  list-style: none;        /* Poista oletusluettelomerkit */
+  padding: 0;              /* Poista oletustäyte */
+  margin: 10px 0 0;        /* Lisää tilaa linkkien yläpuolelle */
+  display: flex;           /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+  justify-content: center; /* Keskitä linkit vaakasuoraan */
+}
+
+/* Alatunnisteen yksittäisten luettelokohteiden tyyli */
+.footer-links li {
+  margin: 0 15px;          /* Lisää välit linkkien väliin */
+}
+
+/* Linkkien ankkuritunnisteiden muotoilu */
+.footer-links a {
+  color: white;                  /* Linkkien väri valkoinen */
+  text-decoration: none;          /* Poista alleviivaus */
+  font-size: 14px;                /* Pieni fonttikoko */
+  transition: color 0.3s ease;    /* Tasainen värisiirtymä leijuttaessa */
+}
+
+/* Hover-tehoste linkeille */
+.footer-links a:hover {
+  color: #00bcd4;                /* Muuta linkin väriä viemällä hiiri */
+}

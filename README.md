@@ -22,6 +22,22 @@ Tämä arkisto sisältää Kit-IT-projektin käyttöliittymäkoodin. Käyttölii
 -
 Muut käytetyt tekniikat (luettelo pinosi)
 
+## Struktuuri
+
+minun sovellus/
+├── public/
+│ └── index.html
+├── src/
+│ ├── assets/  # Kuville, fonteille tai muille staattisille tiedostoille
+│ ├── components/    # Uudelleenkäytettäville komponenteille
+│ ├── pages/   # Sivun osille (esim. Etusivu, Tietoja)
+│ ├── services/   # API-kutsuille tai palvelutoiminnoille
+│ ├── styles/  # Yleisille tai jaetuille tyyleille (esim. CSS, SCSS)
+│ ├── App.js   # Sovelluksen pääkomponentti
+│ ├── index.js    # Päätulopiste, renderöi App.js
+│ └── context/    # Valinnainen, kontekstin tarjoajien hallintaan
+└── package.json
+
 ## Asennusohjeet
 
 1. Kloonaa arkisto:
