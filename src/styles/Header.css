@@ -1,0 +1,44 @@
+.header {
+  display: flex;              /* Käytä flexboxia kohteiden tasaamiseen vaakasuunnassa */
+  justify-content: space-between; /* Logon ja navigoinnin välissä oleva tila */
+  align-items: center;        /* Keskitä kohteet pystysuoraan */
+  padding: 20px 40px;         /* Lisää pehmuste väliä varten */
+  background-color: #333;     /* Tumma taustaväri */
+  color: white;               /* Tekstin väri valkoinen */
+}
+
+/* Logon muotoilu */
+.logo-img {
+  height: 50px;               /* Aseta logon korkeus */
+}
+
+/* Navigointipalkin säiliö */
+.navbar {
+  display: flex;              /* Näytä linkit vaakasuorassa rivissä */
+}
+
+/* Navigointilinkkien muotoilu */
+.nav-links {
+  list-style: none;           /* Poista luettelon oletustyyli */
+  margin: 0;                  /* Poista oletusmarginaali */
+  padding: 0;                 /* Poista oletustäyte */
+  display: flex;              /* Joustava näyttö linkeille */
+}
+
+/* Yksilöllinen linkin muotoilu */
+.nav-links li {
+  margin: 0 20px;             /* Lisää tilaa linkkien väliin */
+}
+
+/* Linkin muotoilu */
+.nav-links a {
+  color: white;               /* Linkkien väri valkoinen */
+  text-decoration: none;      /* Poista linkeistä alleviivaus */
+  font-size: 16px;            /* Aseta fonttikoko */
+  transition: color 0.3s ease;/* Tasainen siirtymä leijuva vaikutus */
+}
+
+/* Hover-tehoste linkeille */
+.nav-links a:hover {
+  color: #00bcd4;             /* Muuta linkin väriä viemällä hiiri */
+}
