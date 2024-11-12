@@ -1,0 +1,88 @@
+.home {
+    background-color: #ffffff; /* Aseta valkoinen taustaväri */
+    color: rgb(5, 5, 5);       /* Aseta tumma tekstin väri */
+    flex: auto;                /* Anna elementin kasvaa ja täyttää käytettävissä oleva tila */
+    align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+}
+
+.home-header {
+    justify-content: space-between; /* Aseta kohteet tasaisesti, ensimmäinen ja viimeinen kohde reunoilla */
+    display: flex;                  /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+}
+
+.home-header-left {
+    justify-content: start;    /* Tasaa sisältö vasemman otsikkoosan alkuun */
+}
+
+.home-header-right {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    gap: 30px;                 /* Lisää elementtien väliin 30 pikseliä */
+    padding: 20px;             /* Lisää sisällön ympärille 20 pikseliä täyte */
+}
+
+.logo_with_catchphrase-img {
+    height: 250px;             /* Aseta logokuvan korkeus */
+}
+
+.blank_user-img {
+    height: 100px;             /* Aseta käyttäjän kuvan korkeus */
+}
+
+.title {
+    text-align: center;        /* Tasaa teksti keskelle */
+    padding: 200px;            /* Lisää otsikon ympärille 200 kuvapisteen täyte */
+}
+
+.panel {
+    background-color: #6e7f80; /* Aseta tummanharmaa taustaväri */
+    color: white;              /* Aseta tekstin valkoinen väri */
+    padding: 20px 0;           /* Lisää 20px pystysuora pehmuste */
+    text-align: center;        /* Tasaa paneelin sisältö keskelle */
+}
+
+/* Alatunnisteen sisältösäiliö */
+.panel-content {
+    max-width: auto;           /* Aseta enimmäisleveys automaattisesti säiliöön sopivaksi */
+    margin: 0 auto;            /* Keskitä sisältö vaakasuoraan */
+    padding: 0 20px;           /* Lisää 20px vaakasuora pehmuste */
+}
+
+/* Alatunnisteen linkkien säilön tyyli */
+.panel-links {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitä linkit vaakasuunnassa */
+    gap: 200px;                /* Lisää 200 kuvapisteen väli kunkin linkkipainikkeen väliin */
+}
+
+.panel-link {
+    background-color: #1b1b1b; /* Aseta painikkeiden tumma taustaväri */
+    list-style: none;          /* Poista luettelon oletustyyli */
+    text-align: center;        /* Keskitä teksti jokaisen painikkeen sisällä */
+    padding: 10px 20px;        /* Lisää pehmuste painikkeiden ulkoasua varten */
+    border-radius: 5px;        /* Käytä pyöristettyjä kulmia painikkeisiin */
+}
+
+/* Painikkeiden sisällä olevien linkkien tyyli */
+.panel-links a {
+    color: white;                  /* Aseta tekstin väriksi valkoinen */
+    text-decoration: none;         /* Poista linkeistä alleviivaus */
+    font-size: 30px;               /* Aseta fonttikoko */
+    display: block;                /* Tee linkistä lohkoelementti koko napsautettavalle alueelle */
+    transition: color 0.3s ease;   /* Tasainen värisiirtymä leijuttaessa */
+}
+
+/* Hover-tehoste linkeille */
+.panel-links a:hover {
+    color: #7d817d;                /* Muuta linkin väriä viemällä hiiri */
+}
+
+.misc {
+    text-align: center;            /* Tasaa sisältö keskelle */
+    padding: 400px;                /* Lisää sisällön ympärille 400 pikselin täyte */
+}
+
+.poster_with_logo-img {
+    height: 250px;                 /* Aseta logokuvan korkeus */
+    padding: 200px;                /* Lisää 200px täyte */
+    text-align: center;            /* Tasaa sisältö keskelle */
+}
