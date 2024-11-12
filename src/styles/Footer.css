@@ -1,6 +1,6 @@
 /* Yleinen alatunnisteen muotoilu */
 .footer {
-  background-color: #333; /* Tumma taustaväri */
+  background-color: #333333a9; /* Tumma taustaväri */
   color: white;            /* White text color */
   padding: 20px 0;         /* Vertical padding for spacing */
   text-align: center;      /* Tasaa sisältö keskelle */

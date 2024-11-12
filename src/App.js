@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 
 // Tuodaan alatunnisteen tyylit
 import './styles/Footer.css';
+import OrderAndAppointment from './pages/OrderAndAppointment';
 
 function App() {
   // Tila, jossa haetut tiedot säilytetään (ei tällä hetkellä käytössä)
@@ -37,6 +38,8 @@ function App() {
         
         {/* Reitti Tietoja-sivulle */}
         <Route path="/about" element={<About />} />
+
+        <Route path="/orderAndAppointment" element={<OrderAndAppointment />} />
         
         {/* Reitti Palvelut-sivulle */}
         <Route path="/services" element={<Services />} />
