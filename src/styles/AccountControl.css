@@ -1,0 +1,52 @@
+.accountControl {
+    background-color: #ffffff; /* Aseta valkoinen taustaväri */
+    color: rgb(5, 5, 5);       /* Aseta tumma tekstin väri */
+    flex: auto;                /* Anna elementin kasvaa ja täyttää käytettävissä oleva tila */
+    align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+}
+
+.back-button {
+    justify-content: start;    /* Tasaa sisältö vasemman puoleen */
+}
+
+.back_arrow-img {
+    height: 100px;             /* Aseta napin kuvan korkeus */
+}
+
+.edit_pen_icon-img {
+    height: 100px;             /* Aseta napin kuvan korkeus */
+}
+
+.edit_username_header {
+    text-align: center;            /* Tasaa sisältö keskelle */
+    padding: 20px;                /* Lisää sisällön ympärille 20 pikselin täyte */
+}
+
+.edit_username_textfield {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
+    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/                
+}
+
+.username-input {
+    text-align: left;            /* Tasaa sisältö vasemmalle */
+    padding: 20px;
+}
+
+.edit_password_header {
+    text-align: center;            /* Tasaa sisältö keskelle */
+    padding: 20px;                /* Lisää sisällön ympärille 20 pikselin täyte */
+}
+
+.edit_password_textfield {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;   
+    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/  
+}
+
+.password-input {
+    text-align: left;            /* Tasaa sisältö vasemmalle */
+    padding: 20px;
+}
