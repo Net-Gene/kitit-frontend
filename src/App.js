@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Tuodaan komponentteja sivuille ja ylä-/alatunnisteelle
 import Home from './pages/Home';
 import About from './pages/About';
+import Register from './pages/Register';
+import Login from './pages/Login';
 import Services from './pages/Services';
 import AccountControl from './pages/AccountControl';
 import Header from './components/Header';
@@ -33,9 +35,15 @@ function App() {
       
       {/* Reittien määrittäminen eri sivuille */}
       <Routes>
+         {/* Reitti kirjautumissivulle */}
+         <Route path="/" element={<Login />} />
+
+          {/* Reitti rekistöitymis sivulle */}
+        <Route path="/register" element={<Register />} />
+
         {/* Reitti kotisivulle */}
-        <Route path="/" element={<Home />} />
-        
+        <Route path="/home" element={<Home />} />
+      
         {/* Reitti Tietoja-sivulle */}
         <Route path="/about" element={<About />} />
 
