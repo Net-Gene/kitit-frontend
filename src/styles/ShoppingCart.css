@@ -1,0 +1,78 @@
+.cart-page {
+    padding: 20px;
+    text-align: center;
+  }
+.cart-page .cart-items {
+    margin: 20px 0;
+    text-align: left;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .remove-item {
+    background-color: #FF4D4D;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .remove-item:hover {
+    background-color: #cc0000;
+  }
+  
+  .confirm-purchase {
+    background-color: #28A745;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .confirm-purchase:hover {
+    background-color: #1e7e34;
+  }
+  .confirm-yes {
+    background-color: #51ff00a8;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
+  .confirm-no {
+    background-color: #f70000a4;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px;
+  }
+  .back-btn {
+    font-size: 30px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    
+  }
+  .back-btn:hover {
+    color: #7d817d;                
+    
+}
+.confirm-page {
+  position: relative;
+}
