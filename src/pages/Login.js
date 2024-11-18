@@ -12,7 +12,7 @@ const Login = () => {
       <input type="text" name="login-form-box" placeholder="Käyttäjänimi" class="login-form-box"></input>
       <input type="text" name="login-form-box" placeholder="Salasana" class="login-form-box"></input>
       <ul class="login-form-confirm">
-          <li><a href="/">Kirjaudu sisään</a></li>
+          <li><a href="/home">Kirjaudu sisään</a></li>
       </ul>
       <div class="register-link">
           <p>Eikö sinulla ole tiliä? </p>
