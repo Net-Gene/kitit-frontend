@@ -51,7 +51,7 @@ const Home = () => {
             <div class="panel-links">
               {/* Luettelo alatunnisteessa olevista linkeistä */}
               <ul class="panel-link">
-                <li><a href="/contact">Tietoa meistä</a></li> {/* Linkki "Tietoja meistä" -sivulle */}
+                <li><a href="/about">Tietoa meistä</a></li> {/* Linkki "Tietoja meistä" -sivulle */}
               </ul>
               <ul class="panel-link">
                 <li><a href="/contact">Tilaus ja ajanvaraus</a></li> {/* Linkki "Tilaa ja varaus" -sivulle */}

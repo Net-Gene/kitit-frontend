@@ -10,10 +10,10 @@ import Services from './pages/Services';
 import AccountControl from './pages/AccountControl';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import OrderAndAppointment from './pages/OrderAndAppointment';
 
 // Import footer styles
 import './styles/Footer.css';
-import OrderAndAppointment from './pages/OrderAndAppointment';
 
 function AppContent() {
   const location = useLocation();
