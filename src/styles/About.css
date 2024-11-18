@@ -3,7 +3,8 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
-    overflow-y: scroll;
+    position: relative;
+
   }
   .back-btn {
     font-size: 30px;
@@ -12,8 +13,7 @@ body {
     color: black;
     cursor: pointer;
     position: absolute;
-    top: 120px;
-    left: 20px;
+    margin: 22;
     
   }  
   .hero {

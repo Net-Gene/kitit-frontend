@@ -13,8 +13,9 @@ const Header = () => {
           <ul class="nav-links">
             <li><a href="/home">Etusivu</a></li>
             <li><a href="/about">Tietoa meistä</a></li>
-            <li><a href="/orderAndAppointment">Tilaus ja ajanvaraus</a></li>
+            <li><a href="/orderAppointments">Tee ajanvaraus</a></li>
             <li><a href="/services">Palvelut</a></li>
+            <li><a href="/shoppingCart"><span class="icon">&#128722;</span></a></li>
           </ul>
         </nav>
       </header>

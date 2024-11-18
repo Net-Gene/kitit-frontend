@@ -54,7 +54,7 @@ const Home = () => {
                 <li><a href="/about">Tietoa meistä</a></li> {/* Linkki "Tietoja meistä" -sivulle */}
               </ul>
               <ul class="panel-link">
-                <li><a href="/contact">Tilaus ja ajanvaraus</a></li> {/* Linkki "Tilaa ja varaus" -sivulle */}
+                <li><a href="/orderAppointments">Ajanvaraukseen</a></li> {/* Linkki "Tilaa ja varaus" -sivulle */}
               </ul>
               <ul class="panel-link">
                 <li><a href="/services">Palvelut</a></li> {/* Linkki "Palvelut" -sivulle */}

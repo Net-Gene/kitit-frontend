@@ -5,7 +5,7 @@ const About = () => {
   return (
     <body>
       <a href="/home">
-          <button class="back-btn">&larr;</button>
+          <button class="back-btn">&larr; Etusivulle</button>
         </a>
       <main class="main">
         <section class="hero">

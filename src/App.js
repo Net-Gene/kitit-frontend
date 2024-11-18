@@ -10,8 +10,9 @@ import Services from './pages/Services';
 import AccountControl from './pages/AccountControl';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import OrderAndAppointment from './pages/OrderAndAppointment';
-
+import OrderAppointments from './pages/OrderAppointments';
+import Purchase from './pages/Purchase';
+import ShoppingCart from './pages/ShoppingCart';
 // Import footer styles
 import './styles/Footer.css';
 
@@ -39,13 +40,18 @@ function AppContent() {
         <Route path="/about" element={<About />} />
 
         {/* Reitti Tilaus ja ajanvaraus-sivulle */}
-        <Route path="/orderAndAppointment" element={<OrderAndAppointment />} />
+        <Route path="/orderAppointments" element={<OrderAppointments />} />
         
         {/* Reitti Palvelut-sivulle */}
         <Route path="/services" element={<Services />} />
         
         {/* Reitti Tilinhallinta-sivulle */}
         <Route path="/accountControl" element={<AccountControl />} />
+
+        <Route path="/purchase" element={<Purchase />} />
+
+        <Route path="/shoppingCart" element={<ShoppingCart />} />
+
       </Routes>
 
       {/* Ehdollisesti renderöi alatunniste, jos se ei ole kirjautumis-tai rekisteröintisivuilla */}

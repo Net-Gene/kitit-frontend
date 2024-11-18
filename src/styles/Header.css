@@ -23,6 +23,7 @@
   margin: 0;                  /* Poista oletusmarginaali */
   padding: 0;                 /* Poista oletustäyte */
   display: flex;              /* Joustava näyttö linkeille */
+  align-items: center;
 }
 
 /* Yksilöllinen linkin muotoilu */
@@ -41,4 +42,7 @@
 /* Hover-tehoste linkeille */
 .nav-links a:hover {
   color: #00bcd4;             /* Muuta linkin väriä viemällä hiiri */
+}
+.icon {
+  font-size: 25px;
 }
