@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../assets/Logo.png'
 import '../styles/Service.css';
 
 const Services = () => {
