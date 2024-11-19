@@ -2,6 +2,7 @@ import React from 'react';
 
 import '../styles/AccountControl.css';
 
+import Button from '../components/Button';
 import blank_user_image from '../assets/blank user.png';
 import edit_pen_icon from '../assets/edit_pen_icon.png';
 import trash_can_icon from '../assets/trash_can_icon.png';
@@ -52,6 +53,10 @@ const AccountControl = () => {
         />
         <img src={edit_pen_icon} alt="edit_pen_icon" class="edit_pen_icon-img"></img>
       </div>
+      <div class ="save_username_button">
+        {/*Käyttäjänimen tallennus nappi*/}
+        <Button onClick={handleSave/* Todo logiikka*/}>Save Username</Button>
+      </div>
 
       {/*Salasanan edit osio*/}
       <div class ="edit_password_header">
@@ -69,6 +74,17 @@ const AccountControl = () => {
           className="password-input"
         />
         <img src={edit_pen_icon} alt="edit_pen_icon" class="edit_pen_icon-img"></img>
+      </div>
+      <div class ="save_password_button">
+        {/*Salasanan tallennus nappi*/}
+        <Button onClick={handleSave/* Todo logiikka*/}>Save Password</Button>
+      </div>
+      
+      {/*Käyttäjän poisto osio*/}
+      <div class ="delete_account_button">
+        {/*Käyttäjän poisto nappi*/}
+        <Button onClick={handleDelete/* Todo logiikka*/} className="button-red">Delete Account</Button>
+        <img src={trash_can_icon} alt="trash_can_icon" class="trash_can_icon-img"></img>
       </div>
 
     </div>
