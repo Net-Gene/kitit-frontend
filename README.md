@@ -2,14 +2,13 @@
 
 ### **Frontend Repository README**
 
-``` merkintä
 # Kit-IT:n käyttöliittymävarasto
 
 Tämä arkisto sisältää Kit-IT-projektin käyttöliittymäkoodin. Käyttöliittymä vastaa käyttöliittymästä ja kommunikoi taustaohjelman API:n kanssa.
 
 ## Sisällysluettelo
 - [Käytetyt tekniikat](#teknologiat-käytetty)
--
+
 [Asennusohjeet](#asennusohjeet)
 - [Projektin suorittaminen](#running-the-projekt)
 - [Kansiorakenne](#folder-structure)
@@ -19,7 +18,7 @@ Tämä arkisto sisältää Kit-IT-projektin käyttöliittymäkoodin. Käyttölii
 - React.js (tai valitsemasi kehys/kirjasto)
 - CSS / SCSS / TailwindCSS (mikä tahansa tyylitapa, jota käytät)
 - Axios (API-kutsuille)
--
+
 Muut käytetyt tekniikat (luettelo pinosi)
 
 ## Struktuuri
@@ -40,7 +39,13 @@ minun sovellus/
 
 ## Asennusohjeet
 
-1. Kloonaa arkisto:
-   ```bash
+Kloonaa arkisto:
+   ```
    git clone <repository-url>
    cd frontend
+   ```
+
+## Käynnistys
+   ```
+   npm start
+   ```
