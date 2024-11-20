@@ -1,0 +1,97 @@
+.accountControl {
+    background-color: #ffffff; /* Aseta valkoinen taustaväri */
+    color: rgb(5, 5, 5);       /* Aseta tumma tekstin väri */
+    flex: auto;                /* Anna elementin kasvaa ja täyttää käytettävissä oleva tila */
+    align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+}
+
+.back-button {
+    justify-content: start;    /* Tasaa sisältö vasemman puoleen */
+}
+
+.back_arrow-img {
+    height: 100px;             /* Aseta napin kuvan korkeus */
+}
+
+.edit_pen_icon-img {
+    height: 100px;             /* Aseta napin kuvan korkeus */
+}
+
+.trash_can_icon-img {
+    height: 100px;             /* Aseta napin kuvan korkeus */
+}
+
+.edit_username_header {
+    text-align: center;            /* Tasaa sisältö keskelle */
+    padding: 20px;                /* Lisää sisällön ympärille 20 pikselin täyte */
+}
+
+.edit_username_textfield {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
+    margin-bottom: 20px;      /* Lisätään marginaali tämän alle*/                
+}
+
+.username-input {
+    text-align: left;            /* Tasaa sisältö vasemmalle */
+    padding: 20px;
+}
+
+.save_username_button {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
+    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/ 
+}
+
+.edit_password_header {
+    text-align: center;            /* Tasaa sisältö keskelle */
+    padding: 20px;                /* Lisää sisällön ympärille 20 pikselin täyte */
+}
+
+.edit_password_textfield {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;   
+    margin-bottom: 20px;      /* Lisätään marginaali tämän alle*/  
+}
+
+.password-input {
+    text-align: left;            /* Tasaa sisältö vasemmalle */
+    padding: 20px;
+}
+
+.save_password_button {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
+    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/ 
+}
+
+.button {
+    background-color: black; /* Musta tausta */
+    color: white; /* valkoinen teksti */
+    padding: 10px 20px;
+    border: none; /* Ei reunoja */
+    border-radius: 4px; /* Pyöreät nurkat */
+    cursor: pointer; /* Hiiri reagoi nappiin */
+    font-size: 16px;
+  }
+
+  .button-red {
+    background-color: red; /* Punainen tausta */
+    color: white; /* valkoinen teksti */
+    padding: 10px 20px;
+    border: none; /* Ei reunoja */
+    border-radius: 10px; /* Pyöreät nurkat */
+    cursor: pointer; /* Hiiri reagoi nappiin */
+    font-size: 16px;
+  }
+
+  .delete_account_button {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;   
+    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/ 
+  }
