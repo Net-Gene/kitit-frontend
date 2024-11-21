@@ -7,11 +7,11 @@
 Tämä arkisto sisältää Kit-IT-projektin käyttöliittymäkoodin. Käyttöliittymä vastaa käyttöliittymästä ja kommunikoi taustaohjelman API:n kanssa.
 
 ## Sisällysluettelo
-- [Käytetyt tekniikat](#teknologiat-käytetty)
+- [Käytetyt tekniikat](#käytetyt-tekniikat)
 - [Asennusohjeet](#asennusohjeet)
-- [Projektin suorittaminen](#running-the-projekt)
-- [Kansiorakenne](#folder-structure)
-- [Osallistuminen](#contributing)
+- [Projektin suorittaminen](#käynnistys)
+- [Kansiorakenne](#struktuuri)
+- [Osallistuminen](#osallistuminen)
 
 ## Käytetyt tekniikat
 - React.js (tai valitsemasi kehys/kirjasto)
@@ -22,6 +22,7 @@ Muut käytetyt tekniikat (luettelo pinosi)
 
 ## Struktuuri
 
+```
 frontend/
 ├── public/
 │   └── index.html
@@ -35,6 +36,9 @@ frontend/
 │   ├── index.js
 │   └── context/
 ├── package.json
+```
+
+
 
 ## Asennusohjeet
 
@@ -48,3 +52,9 @@ Kloonaa arkisto:
    ```
    npm start
    ```
+
+## Osallistuminen
+
+1. Tee oma haara (branch) ja tee muutokset.
+2. Testaa muutoksesi paikallisesti.
+3. Tee **pull request** GitHubiin.
