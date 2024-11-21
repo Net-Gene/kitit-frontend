@@ -1,0 +1,58 @@
+.orderAppointments {
+    background-color: #ffffff; /* Aseta valkoinen taustaväri */
+    color: rgb(5, 5, 5);       /* Aseta tumma tekstin väri */
+    flex: auto;                /* Anna elementin kasvaa ja täyttää käytettävissä oleva tila */
+    align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+}
+
+.back-button {
+    display: flex;
+    justify-content: space-between; /* Itemit reunoille */
+    align-items: center;
+    width: 100%;
+}
+
+.back_arrow-img {
+    height: 100px;             /* Aseta napin kuvan korkeus */
+}
+
+.logo_with_catchphrase-img {
+    height: 150px;             /* Aseta logokuvan korkeus */
+}
+
+.calendar-container {
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .react-calendar {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .react-calendar__tile {
+    padding: 15px 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+  
+  .react-calendar__tile--active {
+    background-color: #006edc;
+    color: white;
+  }
+  
+  .react-calendar__navigation button {
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .react-calendar__tile--hover {
+    background-color: #f0f0f0;
+  }
