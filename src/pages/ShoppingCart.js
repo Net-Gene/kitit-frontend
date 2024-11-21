@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Käytä useNavigatea useHistoryn sijaan
 import fallout_boy from '../assets/fallout boy.png'
 
 import '../styles/ShoppingCart.css';
@@ -12,11 +11,6 @@ const ShoppingCart = () => {
     // valtio hoitaa onnistuneen oston
 
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
-
-    const navigate = useNavigate(); // Alusta navigointi
-
-
-    // Vaihda vahvistusponnahdusikkunan näkyvyyttä
 
     const handleConfirmClick = () => {
         setIsConfirmVisible(true);
