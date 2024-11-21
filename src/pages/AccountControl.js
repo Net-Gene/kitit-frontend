@@ -1,11 +1,10 @@
 import React from 'react';
 
 import '../styles/AccountControl.css';
-
+import {useState, handleSave, handleDelete} from 'react';
 import Button from '../components/Button';
-import blank_user_image from '../assets/blank user.png';
-import edit_pen_icon from '../assets/edit_pen_icon.png';
-import trash_can_icon from '../assets/trash_can_icon.png';
+import edit_pen_icon from '../assets/edit-pen-icon.png';
+import trash_can_icon from '../assets/trash-can-icon.png';
 import back_arrow from '../assets/back_arrow.png';
 
 const AccountControl = () => {
