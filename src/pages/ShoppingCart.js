@@ -6,24 +6,28 @@ import '../styles/ShoppingCart.css';
 const ShoppingCart = () => {
     const [isConfirmVisible, setIsConfirmVisible] = useState(false);
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
-    const [orders, setOrders] = useState([]);  // the state records the orders
+    const [orders, setOrders] = useState([]);  // valtio kirjaa tilaukset
+
 
 
 
     useEffect(() => {
-        // Retrieve orders from the backend when the component is installed
+        // Hae tilaukset taustajärjestelmästä, kun komponentti on asennettu
+
 
 
         const fetchOrders = async () => {
             try {
-                const response = await fetch('http://localhost:3001/orders');  // Adjust the URL to match your API
+                const response = await fetch('http://localhost:3001/orders');  // Säädä URL-osoite vastaamaan sovellusliittymääsi
+
 
 
                 if (!response.ok) {
                     throw new Error('Tilausten nouto epäonnistui');
                 }
                 const data = await response.json();
-                setOrders(data);  // Set the requested orders to status
+                setOrders(data);  // Aseta pyydetyt tilaukset tilaan
+
 
 
             } catch (error) {
@@ -48,7 +52,7 @@ const ShoppingCart = () => {
 
     return (
         <div className="cart-page">
-            {/* Show the contents of the shopping cart or a success message conditionally */}
+            {/* Näytä ostoskorin sisältö tai menestysviesti ehdollisesti */}
             {!isPurchaseSuccessful ? (
                 <>
                     <header>
@@ -78,7 +82,7 @@ const ShoppingCart = () => {
                         Vahvista ostos
                     </button>
 
-                    {/* Conditional rendering of confirmation popup */}
+                    {/* Vahvistusponnahdusikkunan ehdollinen renderöinti */}
                     {isConfirmVisible && (
                         <div className="confirm-box">
                             <p>Haluatko varmasti vahvistaa tämän ostoksen?</p>
