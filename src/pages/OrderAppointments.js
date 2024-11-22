@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../styles/OrderAppointments.css';
@@ -22,7 +22,7 @@ const OrderAppointments = () => {
       {/*Takaisin nappi*/}
       <div class ="back-button">
         {/*Linkki pääsivulle, jossa on nuolikuvake*/}
-        <a href="/">
+        <a href="/home">
           <img src={back_arrow} alt="back_arrow" class="back_arrow-img"></img>
         </a>
         <img src={logo_with_catchphrase} alt="logo_with_catchphrase" class="logo_with_catchphrase-img"></img>

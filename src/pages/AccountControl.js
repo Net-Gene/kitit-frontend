@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../styles/AccountControl.css';
 
@@ -31,7 +31,7 @@ const AccountControl = () => {
       {/*Takaisin nappi*/}
       <div class ="back-button">
         {/*Linkki pääsivulle, jossa on nuolikuvake*/}
-        <a href="/">
+        <a href="/home">
           <img src={back_arrow} alt="back_arrow" class="back_arrow-img"></img>
         </a>
       </div>
