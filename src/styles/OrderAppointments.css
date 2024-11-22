@@ -56,3 +56,20 @@
   .react-calendar__tile--hover {
     background-color: #f0f0f0;
   }
+
+  .make_appointment_button {
+    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
+    gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
+    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/ 
+  }
+
+  .button {
+    background-color: black; /* Musta tausta */
+    color: white; /* valkoinen teksti */
+    padding: 10px 20px;
+    border: none; /* Ei reunoja */
+    border-radius: 4px; /* Pyöreät nurkat */
+    cursor: pointer; /* Hiiri reagoi nappiin */
+    font-size: 16px;
+  }

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, handleSave } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '../styles/OrderAppointments.css';
 
+import Button from '../components/Button';
 import logo_with_catchphrase from '../assets/Logo with catchphrase.png';
 import back_arrow from '../assets/back_arrow.png';
 
@@ -37,6 +38,11 @@ const OrderAppointments = () => {
           minDate={new Date()} // Käyttäjä ei voi valita menneisyyden päiviä
         />
         <p>Selected date: {date.toDateString()}</p>
+      </div>
+
+      <div class ="make_appointment_button">
+        {/*Käyttäjän poisto nappi*/}
+        <Button onClick={handleSave/* Todo logiikka*/} className="button">Make Appointment</Button>
       </div>
       
     </div>

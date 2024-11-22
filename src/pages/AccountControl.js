@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, handleSave, handleDelete } from 'react';
 
 import '../styles/AccountControl.css';
 
@@ -55,7 +55,7 @@ const AccountControl = () => {
       </div>
       <div class ="save_username_button">
         {/*Käyttäjänimen tallennus nappi*/}
-        <Button onClick={handleSave/* Todo logiikka*/}>Save Username</Button>
+        <Button onClick={handleSave/* Todo logiikka*/} className="button">Save Username</Button>
       </div>
 
       {/*Salasanan edit osio*/}
@@ -77,7 +77,7 @@ const AccountControl = () => {
       </div>
       <div class ="save_password_button">
         {/*Salasanan tallennus nappi*/}
-        <Button onClick={handleSave/* Todo logiikka*/}>Save Password</Button>
+        <Button onClick={handleSave/* Todo logiikka*/} className="button">Save Password</Button>
       </div>
       
       {/*Käyttäjän poisto osio*/}
