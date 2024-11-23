@@ -14,11 +14,11 @@
 }
 
 .edit_pen_icon-img {
-    height: 100px;             /* Aseta napin kuvan korkeus */
+    height: 50px;             /* Aseta napin kuvan korkeus */
 }
 
 .trash_can_icon-img {
-    height: 100px;             /* Aseta napin kuvan korkeus */
+    height: 50px;             /* Aseta napin kuvan korkeus */
 }
 
 .edit_username_header {
@@ -36,6 +36,7 @@
 .username-input {
     text-align: left;            /* Tasaa sisältö vasemmalle */
     padding: 20px;
+    height: 10px;
 }
 
 .save_username_button {
@@ -60,6 +61,7 @@
 .password-input {
     text-align: left;            /* Tasaa sisältö vasemmalle */
     padding: 20px;
+    height: 10px;
 }
 
 .save_password_button {
