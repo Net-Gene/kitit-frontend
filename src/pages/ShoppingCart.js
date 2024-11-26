@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import fallout_boy from '../assets/fallout boy.png';
-import { useNavigate } from 'react-router-dom';
 
 import '../styles/ShoppingCart.css';
 
@@ -12,9 +11,8 @@ const ShoppingCart = () => {
 
     const [isConfirmVisible, setIsConfirmVisible] = useState(false);
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
-    const [orders, setOrders] = useState([]);  // valtio kirjaa tilaukset
+    const [setOrders] = useState([]);  // valtio kirjaa tilaukset
     
-    const navigate = useNavigate();
 
     const removeProduct = async (productId, orderId) => {
         try {
