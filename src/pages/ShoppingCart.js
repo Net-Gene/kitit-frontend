@@ -11,7 +11,7 @@ const ShoppingCart = () => {
 
     const [isConfirmVisible, setIsConfirmVisible] = useState(false);
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
-    const [orders, setOrders] = useState([]);  // valtio kirjaa tilaukset
+    const [, setOrders] = useState([]);  // valtio kirjaa tilaukset
     
 
     const removeProduct = async (productId, orderId) => {
