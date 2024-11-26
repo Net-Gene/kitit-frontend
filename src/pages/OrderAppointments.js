@@ -16,7 +16,6 @@ const OrderAppointments = () => {
       setDate(selectedDate); // päivitetään valittu päivämäärä
       alert(`You selected ${selectedDate.toDateString()}`); // Example action
     };
-
     const handleSave = () => {
       alert(`Appointment saved for ${date.toDateString()}`);
       //Lisää logiikka tähän    

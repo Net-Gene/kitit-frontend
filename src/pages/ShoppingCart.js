@@ -4,10 +4,39 @@ import fallout_boy from '../assets/fallout boy.png';
 import '../styles/ShoppingCart.css';
 
 const ShoppingCart = () => {
+    const [cartItems, setCartItems] = useState([
+        { id: 1, name: 'Tuotteen nimi', description: 'Kuvaus', quantity: 2, price: 10, orderId: 123 },
+        { id: 2, name: 'Toinen tuote', description: 'Toinen kuvaus', quantity: 1, price: 20, orderId: 123 },
+    ]);
+
     const [isConfirmVisible, setIsConfirmVisible] = useState(false);
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
-    const [orders, setOrders] = useState([]);  // valtio kirjaa tilaukset
+    const [, setOrders] = useState([]);  // valtio kirjaa tilaukset
+    
 
+    const removeProduct = async (productId, orderId) => {
+        try {
+          const response = await fetch('http://localhost:3001/remove-from-cart', {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productId, orderId }),
+          });
+      
+          if (response.ok) {
+            // Update state by filtering out the removed product
+            setCartItems(cartItems.filter((item) => item.id !== productId));
+            alert('Product removed successfully');
+          } else {
+            const errorData = await response.json();
+            alert(errorData.message || 'Failed to remove product');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('An error occurred while removing the product');
+        }
+      };
 
 
 
@@ -61,23 +90,30 @@ const ShoppingCart = () => {
                     </header>
                     <div className="cart-items">
                         {/* Renderöi tilaukset dynaamisesti */}
-                        {orders.length > 0 ? (
-                        orders.map((order, index) => (
-                            <div className="cart-item" key={`${order.order_id}-${index}`}>
-                                <p>Tilauksen ID: {order.order_id}</p>
-                                <p>Tuote: {order.product_name}</p>
-                                <p>Kuvaus: {order.product_description}</p>
-                                <p>Määrä: {order.quantity}</p>
-                                <p>Hinta per tuote: {order.item_price} €</p>
-                                <p>Kokonaishinta: {order.total_price} €</p>
-                                <button className="remove-item">Poista</button>
+                        {cartItems.length > 0 ? (
+                        cartItems.map((item) => (
+                            <div key={item.id} className="cart-item">
+                                <p>Tilauksen ID: {item.orderId}</p>
+                                <p>Tuote: {item.name}</p>
+                                <p>Kuvaus: {item.description}</p>
+                                <p>Määrä: {item.quantity}</p>
+                                <p>Hinta per tuote: {item.price} €</p>
+                                <p>Kokonaishinta: {(item.price * item.quantity).toFixed(2)} €</p>
+                                <button
+                                className="remove-item" onClick={() => removeProduct(item.id, item.orderId)}>Poista</button>
                             </div>
                         ))
                     ) : (
                         <p>Ei tuotteita ostoskorissa.</p>
                     )}
-
                     </div>
+
+
+
+
+
+
+
                     <button className="confirm-purchase" onClick={handleConfirmClick}>
                         Vahvista ostos
                     </button>
