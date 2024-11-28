@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/Login.css';
 
 const Login = () => {
@@ -13,21 +13,15 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-      if (response.ok) {
-        navigate('/home'); // Onnistuessa vie home sivulle
-      } else {
-        const data = await response.json();
-        setError(data.message || 'Login failed.'); // Muuten antaa virhe-viestin
-      }
+      const response = await axios.post('http://localhost:3001/api/login', { username, password }, { withCredentials: true });
+      console.log('Login successful:', response.data);
+      navigate('/home'); // Vie kotisivulle onnistuessa
     } catch (error) {
-      setError('An error occurred. Please try again.');
+      console.error('Login error:', error);
+      setError(error.response?.data?.message || 'Login failed. Please try again.');
     }
   };
+
 
   return (
   // Pääsäiliö login-komponentille
