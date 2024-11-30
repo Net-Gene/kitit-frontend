@@ -12,7 +12,6 @@ const Purchase = () => {
       .get('http://localhost:3001/api/user', { withCredentials: true })
       .then((response) => {
         console.log('Fetched User ID:', response.data.userId);
-        alert('Fetched User ID:',  response.data.userId);
         setUserId(response.data.userId);
       })
       .catch((error) => {

@@ -10,13 +10,22 @@ const ShoppingCart = () => {
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
 
 
+    
 
     useEffect(() => {
         // Hae tilaukset taustajärjestelmästä, kun komponentti on asennettu
         const fetchOrders = async () => {
             try {
                 const response = await axios.get('http://localhost:3001/orders', { withCredentials: true });
-                setCartItems(response.data);
+                const formattedItems = response.data.map((item) => ({
+                id: item.product_id,
+                orderId: item.order_id,
+                name: item.product_name,
+                description: item.product_description,
+                quantity: item.quantity,
+                price: item.item_price,
+            }));
+            setCartItems(formattedItems);
             } catch (error) {
                 console.error('Error fetching orders:', error);
             }
@@ -28,22 +37,22 @@ const ShoppingCart = () => {
 
 
     // tuotteen poisto
-    const removeProduct = async (productId) => {
+    const removeProduct = async (productId, orderId) => {
         try {
             const response = await axios.delete('http://localhost:3001/remove-from-cart', {
                 withCredentials: true,
-                data: { productId }, // Axios `data` is equivalent to `body` in fetch
+                data: { productId, orderId },
             });
-
+    
             if (response.status === 200) {
-                setCartItems(cartItems.filter((item) => item.product_id !== productId));
+                setCartItems(cartItems.filter((item) => item.id !== productId));
                 alert('Product removed successfully');
             } else {
                 alert(response.data.message || 'Failed to remove product');
             }
         } catch (error) {
             console.error('Error removing product:', error);
-            alert('An error occurred while removing the product');
+            alert('An error occurred while removing the product', error);
         }
     };
 
@@ -88,9 +97,6 @@ const ShoppingCart = () => {
                         <p>Ei tuotteita ostoskorissa.</p>
                     )}
                     </div>
-
-
-
 
 
 
