@@ -22,7 +22,7 @@ const Register = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:3001/api/register', { username, password }, { withCredentials: true });
+      await axios.post('http://localhost:3001/api/register', { username, password }, { withCredentials: true });
       alert('Registration successful!');
       navigate('/'); // Vie login sivulle onnistuessa
     } catch (error) {
