@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../styles/Register.css';
 
 const Register = () => {
@@ -12,24 +13,22 @@ const Register = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    if (!username || !password || !confirmPassword) {
+      alert('Please fill in all fields.');
+      return;
+    }
     if (password !== confirmPassword) {
       setError('Passwords do not match.');
       return;
     }
     try {
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-      if (response.ok) {
-        navigate('/'); // Onnistuessa vie login sivulle
-      } else {
-        const data = await response.json();
-        setError(data.message || 'Registration failed.'); // Muuten antaa virhe-viestin
-      }
+      await axios.post('http://localhost:3001/api/register', { username, password }, { withCredentials: true });
+      alert('Registration successful!');
+      navigate('/'); // Vie login sivulle onnistuessa
     } catch (error) {
-      setError('An error occurred. Please try again.');
+      alert('An error occurred while registering.');
+      console.error('Registration error:', error);
+      setError(error.response?.data?.message || 'An error occurred while registering.');
     }
   };
 
@@ -43,9 +42,10 @@ const Register = () => {
       <div class="register-form">
         <h3>Rekisteröidy</h3>
         {error && <p className="error">{error}</p>}
-        <input type="text" placeholder="Uusi Käyttäjänimi" value={username} onChange={(e) => setUsername(e.target.value)} className="register-form-box"/>
-        <input type="password" placeholder="Uusi salasana" value={password} onChange={(e) => setPassword(e.target.value)} className="register-form-box"/>
-        <input type="password" placeholder="Kirjoita uudelleen uusi salasana" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="register-form-box"/>
+        <input type="text" placeholder="Uusi Käyttäjänimi" value={username} onChange={(e) => setUsername(e.target.value)} className="register-form-box" name="username"/>
+        <input type="password" placeholder="Uusi salasana" value={password} onChange={(e) => setPassword(e.target.value)} className="register-form-box" name="password"/>
+        <input type="password" placeholder="Kirjoita uudelleen uusi salasana"
+        value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="register-form-box" name="confirmPassword"/>
 
         <ul class="register-form-confirm">
             <li>

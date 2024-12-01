@@ -105,3 +105,9 @@
 .login-link a:hover {
     color: #7d817d;                /* Muuta linkin väriä viemällä hiiri */
 }
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
