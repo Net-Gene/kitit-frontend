@@ -6,27 +6,12 @@ import '../styles/Login.css';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, ] = useState('');
   const navigate = useNavigate();
 
 
   const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
-      if (response.ok) {
-        navigate('/home'); // Onnistuessa vie home sivulle
-      } else {
-        const data = await response.json();
-        setError(data.message || 'Login failed.'); // Muuten antaa virhe-viestin
-      }
-    } catch (error) {
-      setError('An error occurred. Please try again.');
-    }
+    navigate('/home'); // Onnistuessa vie home sivulle
   };
 
   return (
