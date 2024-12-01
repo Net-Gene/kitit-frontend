@@ -1,71 +1,61 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import fallout_boy from '../assets/fallout boy.png';
 
 import '../styles/ShoppingCart.css';
 
 const ShoppingCart = () => {
-    const [cartItems, setCartItems] = useState([
-        { id: 1, name: 'Tuotteen nimi', description: 'Kuvaus', quantity: 2, price: 10, orderId: 123 },
-        { id: 2, name: 'Toinen tuote', description: 'Toinen kuvaus', quantity: 1, price: 20, orderId: 123 },
-    ]);
-
+    const [cartItems, setCartItems] = useState([]);
     const [isConfirmVisible, setIsConfirmVisible] = useState(false);
     const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
-    const [, setOrders] = useState([]);  // valtio kirjaa tilaukset
+
+
     
-
-    const removeProduct = async (productId, orderId) => {
-        try {
-          const response = await fetch('http://localhost:3001/remove-from-cart', {
-            method: 'DELETE',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ productId, orderId }),
-          });
-      
-          if (response.ok) {
-            // Update state by filtering out the removed product
-            setCartItems(cartItems.filter((item) => item.id !== productId));
-            alert('Product removed successfully');
-          } else {
-            const errorData = await response.json();
-            alert(errorData.message || 'Failed to remove product');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('An error occurred while removing the product');
-        }
-      };
-
-
 
     useEffect(() => {
         // Hae tilaukset taustajärjestelmästä, kun komponentti on asennettu
-
-
-
         const fetchOrders = async () => {
             try {
-                const response = await fetch('http://localhost:3001/orders');  // Säädä URL-osoite vastaamaan sovellusliittymääsi
-
-
-
-                if (!response.ok) {
-                    throw new Error('Tilausten nouto epäonnistui');
-                }
-                const data = await response.json();
-                setOrders(data);  // Aseta pyydetyt tilaukset tilaan
-
-
-
+                const response = await axios.get('http://localhost:3001/orders', { withCredentials: true });
+                const formattedItems = response.data.map((item) => ({
+                id: item.product_id,
+                orderId: item.order_id,
+                name: item.product_name,
+                description: item.product_description,
+                quantity: item.quantity,
+                price: item.item_price,
+            }));
+            setCartItems(formattedItems);
             } catch (error) {
-                console.error('Virhe tilausten noutamisessa:', error);
+                console.error('Error fetching orders:', error);
             }
         };
 
         fetchOrders();
     }, []);
+
+
+
+    // tuotteen poisto
+    const removeProduct = async (productId, orderId) => {
+        try {
+            const response = await axios.delete('http://localhost:3001/remove-from-cart', {
+                withCredentials: true,
+                data: { productId, orderId },
+            });
+    
+            if (response.status === 200) {
+                setCartItems(cartItems.filter((item) => item.id !== productId));
+                alert('Product removed successfully');
+            } else {
+                alert(response.data.message || 'Failed to remove product');
+            }
+        } catch (error) {
+            console.error('Error removing product:', error);
+            alert('An error occurred while removing the product', error);
+        }
+    };
+
 
     const handleConfirmClick = () => {
         setIsConfirmVisible(true);
@@ -107,9 +97,6 @@ const ShoppingCart = () => {
                         <p>Ei tuotteita ostoskorissa.</p>
                     )}
                     </div>
-
-
-
 
 
 

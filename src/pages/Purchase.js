@@ -4,7 +4,20 @@ import '../styles/Purchase.css';
 
 const Purchase = () => {
   const [products, setProducts] = useState([]);
-  const [userId] = useState(1); // Olettaen, että käyttäjätunnus on tällä hetkellä 1. Korvaa todellisilla käyttäjätiedoilla.
+  const [userId, setUserId] = useState(null);
+
+  // Haetaan user id
+  useEffect(() => {
+    axios
+      .get('http://localhost:3001/api/user', { withCredentials: true })
+      .then((response) => {
+        console.log('Fetched User ID:', response.data.userId);
+        setUserId(response.data.userId);
+      })
+      .catch((error) => {
+        console.error('Error fetching user ID:', error);
+      });
+  }, []);
 
   
   // Hae tuotteet taustajärjestelmästä
@@ -21,6 +34,10 @@ const Purchase = () => {
   }, []);
 
   const handleAddToCart = (productId, price) => {
+    if (!userId) {
+      alert('User not logged in.');
+      return;
+    }
     const quantity = 1; // Olettaen, että käyttäjä lisää yhden kohteen kerrallaan, mutta voit muokata sitä käyttäjän syötteen perusteella.
 
 
