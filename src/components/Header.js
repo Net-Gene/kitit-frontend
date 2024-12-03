@@ -10,7 +10,7 @@ const Header = () => {
 
   const logOut = async () => {
     try {
-      await axios.post('http://localhost:3001/api/logout'); // Change to POST
+      await axios.post('http://localhost:3001/api/logout', {}, { withCredentials: true })
       alert('Kirjauduttu ulos onnistuneesti!');
       navigate('/'); // Use navigate to redirect to the login page
     } catch (error) {
