@@ -1,70 +1,80 @@
 import React from 'react';
 import '../styles/About.css';
+import repairing_a_smartphone from '../assets/A_close-up_shot_of_a_worker_repairing_a_smartphone_with_tools.jpg';
+import Circular_Economy from '../assets/Circular_Economy.jpg';
+import common_repairs_on_laptop from '../assets/common_repairs_on_laptop.jpg';
+import recycling from '../assets/recycling.png';
+import a_robot_recycling from '../assets/a_robot_recycling.jpg';
 
 const About = () => {
   return (
-    <body>
-      <a href="/home">
-          <button class="back-btn">&larr; Etusivulle</button>
-        </a>
-      <main class="main">
-        <section class="hero">
+    <div className="about_body">
+      <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
+      <main>
+        <section className="hero">
           <h1>Kit-IT</h1>
-          <p>New life for old devices</p>
+          <p>Uuden elämän antaminen vanhoille laitteille vastuullisesti ja kestävästi.</p>
         </section>
-        <section class="content">
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
+        <section className="content">
+          <div className="content-item">
+            <div><img src={repairing_a_smartphone} className="content-image"alt="repairing_a_smartphone" /></div>
+            <div className="content-text">
               <h2>Tietoja meistä</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec eros vel leo posuere vehicula at id lorem.</p>
+              <p>
+              Kit-IT on omistautunut kestävän kehityksen edistämiseen elektroniikkalaitteiden kierrätyksen, 
+              korjauksen ja huollon avulla.<br /> 
+              Uskomme, että jokaisella laitteella on toinen mahdollisuus, 
+              ja haluamme auttaa asiakkaitamme vähentämään elektroniikkajätettä ympäristöystävällisin keinoin.                
+              </p>
             </div>
           </div>
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
+          <div className="content-item">
+          <div><img src={Circular_Economy} className="content-image"alt="Circular_Economy" /></div>
+          <div className="content-text">
               <h2>Tehtävämme</h2>
-              <p>Proin tincidunt arcu a justo pharetra, et tincidunt ex maximus. Suspendisse potenti.</p>
+              <p>
+              Teemme kestävyydestä saavutettavaa kaikille tarjoamalla kohtuuhintaisia 
+              ja vastuullisia ratkaisuja elektroniikan kierrätykseen, korjaukseen ja kunnossapitoon.<br />
+              Asiakkaidemme tukemana rakennamme yhdessä vihreämpää tulevaisuutta.
+              </p>
             </div>
           </div>
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
-              <h2>Lorem ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec eros vel leo posuere vehicula at id lorem.</p>
+          <div className="content-item">
+          <div><img src={common_repairs_on_laptop} className="content-image"alt="common_repairs_on_laptop" /></div>
+          <div className="content-text">
+              <h2>Mitä teemme</h2>
+              <p>
+              Tarjoamme laajan valikoiman palveluita, 
+              jotka kattavat kaiken rikkinäisten näyttöjen korjauksesta toimimattomien laitteiden kierrätykseen.<br />
+              Räätälöimme ratkaisumme sähköisiin tarpeisiisi, samalla kun varmistamme ympäristön hyvinvoinnin.              
+              </p>
             </div>
           </div>
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
-              <h2>Lorem ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec eros vel leo posuere vehicula at id lorem.</p>
+          <div className="content-item">
+          <div><img src={recycling} className="content-image"alt="recycling" /></div>
+            <div className="content-text">
+              <h2>Miksi valita Kit-IT?</h2>
+              <p>
+              Yhdistämme asiantuntemuksen, kilpailukykyiset hinnat 
+              ja ympäristötietoisuuden tarjotaksemme vertaansa vailla olevaa palvelua.<br />
+              Kun valitset Kit-IT:n, valitset samalla vihreämmän tulevaisuuden.              
+              </p>
             </div>
           </div>
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
-              <h2>Lorem ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec eros vel leo posuere vehicula at id lorem.</p>
-            </div>
-          </div>
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
-              <h2>Lorem ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec eros vel leo posuere vehicula at id lorem.</p>
-            </div>
-          </div>
-          <div class="content-item">
-            <div class="content-image"></div>
-            <div class="content-text">
-              <h2>Lorem ipsum</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec eros vel leo posuere vehicula at id lorem.</p>
+          <div className="content-item">
+          <div><img src={a_robot_recycling} className="content-image"alt="a_robot_recycling" /></div>
+            <div className="content-text">
+              <h2>Visiomme</h2>
+              <p>
+              Näemme maailman, jossa yksikään elektroninen laite ei mene hukkaan.<br />
+              Haluamme tehdä kestävästä kehityksestä elämäntavan, 
+              jossa teknologia ja ympäristö kulkevat käsi kädessä.              
+              </p>
             </div>
           </div>
         </section>
       </main>
-    </body>
+    </div>
   );
 };
 

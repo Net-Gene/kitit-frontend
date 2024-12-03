@@ -57,6 +57,7 @@ const Purchase = () => {
 
   return (
     <div className="purchase-page">
+    <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
       <header>
         <h1>Tilaa ja osta</h1>
         <p>Valitse ostettavat tuotteet</p>

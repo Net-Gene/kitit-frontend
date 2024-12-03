@@ -1,88 +1,214 @@
+/* Kotisivun pääsäiliö */
 .home {
-    background-color: #ffffff; /* Aseta valkoinen taustaväri */
-    color: rgb(5, 5, 5);       /* Aseta tumma tekstin väri */
-    flex: auto;                /* Anna elementin kasvaa ja täyttää käytettävissä oleva tila */
-    align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
 }
 
+a {
+    color: inherit !important;      /* Peri väri vanhemmalta */
+    text-decoration: none !important;  /* Poista alleviivaus maailmanlaajuisesti */
+}
+li {
+    list-style: none;
+}
+
+/* Otsikkoosio, jossa on parannettu asettelu */
 .home-header {
-    justify-content: space-between; /* Aseta kohteet tasaisesti, ensimmäinen ja viimeinen kohde reunoilla */
-    display: flex;                  /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #ddd;
 }
 
-.home-header-left {
-    justify-content: start;    /* Tasaa sisältö vasemman otsikkoosan alkuun */
+.home-header-left img {
+    height: 200px;
+    object-fit: contain;
 }
 
 .home-header-right {
-    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
-    gap: 30px;                 /* Lisää elementtien väliin 30 pikseliä */
-    padding: 20px;             /* Lisää sisällön ympärille 20 pikseliä täyte */
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 14px;
 }
 
-.logo_with_catchphrase-img {
-    height: 250px;             /* Aseta logokuvan korkeus */
+.home-header-right p {
+    margin: 0;
 }
 
-.blank_user-img {
-    height: 100px;             /* Aseta käyttäjän kuvan korkeus */
+.home-header-right a img {
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease;
 }
 
+.home-header-right a img:hover {
+    transform: scale(1.1);
+}
+
+/* Otsikkoosio tyylikkäällä otsikolla */
 .title {
-    text-align: center;        /* Tasaa teksti keskelle */
-    padding: 200px;            /* Lisää otsikon ympärille 200 kuvapisteen täyte */
+    text-align: center;
+    padding: 50px 0;
+    width: 100%;
+    background-color: #f5f5f5;
+    margin-top: 20px;
 }
 
+.title h1 {
+    font-size: 3rem;
+    color: #444;
+}
+
+/* Navigointipaneeli moderneilla painikkeilla */
 .panel {
-    background-color: #6e7f80; /* Aseta tummanharmaa taustaväri */
-    color: white;              /* Aseta tekstin valkoinen väri */
-    padding: 20px 0;           /* Lisää 20px pystysuora pehmuste */
-    text-align: center;        /* Tasaa paneelin sisältö keskelle */
+    background-color: #302c179c;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-/* Alatunnisteen sisältösäiliö */
 .panel-content {
-    max-width: auto;           /* Aseta enimmäisleveys automaattisesti säiliöön sopivaksi */
-    margin: 0 auto;            /* Keskitä sisältö vaakasuoraan */
-    padding: 0 20px;           /* Lisää 20px vaakasuora pehmuste */
-}
-
-/* Alatunnisteen linkkien säilön tyyli */
-.panel-links {
-    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
-    justify-content: center;   /* Keskitä linkit vaakasuunnassa */
-    gap: 200px;                /* Lisää 200 kuvapisteen väli kunkin linkkipainikkeen väliin */
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }
 
 .panel-link {
-    background-color: #1b1b1b; /* Aseta painikkeiden tumma taustaväri */
-    list-style: none;          /* Poista luettelon oletustyyli */
-    text-align: center;        /* Keskitä teksti jokaisen painikkeen sisällä */
-    padding: 10px 20px;        /* Lisää pehmuste painikkeiden ulkoasua varten */
-    border-radius: 5px;        /* Käytä pyöristettyjä kulmia painikkeisiin */
+    list-style: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #ac95229c;
+    transition: background-color 0.3s ease;
 }
 
-/* Painikkeiden sisällä olevien linkkien tyyli */
+.panel-link:hover {
+    background-color: #ac9522fb;
+    transition: transform 0.3s ease;
+    transform: scale(1.20);
+}
+
 .panel-links a {
     color: white;                  /* Aseta tekstin väriksi valkoinen */
-    text-decoration: none;         /* Poista linkeistä alleviivaus */
+    text-decoration: none;         /* Poista alleviivaus */
     font-size: 30px;               /* Aseta fonttikoko */
-    display: block;                /* Tee linkistä lohkoelementti koko napsautettavalle alueelle */
-    transition: color 0.3s ease;   /* Tasainen värisiirtymä leijuttaessa */
+    display: block;                /* Tee linkistä lohkotason elementti */
+    transition: color 0.3s ease;   /* Tasainen siirtymä värin vaihtamiseen */
 }
 
-/* Hover-tehoste linkeille */
 .panel-links a:hover {
-    color: #7d817d;                /* Muuta linkin väriä viemällä hiiri */
+    color: #7d817d;                /* Vaihda väriä osoitin */
 }
 
 .misc {
-    text-align: center;            /* Tasaa sisältö keskelle */
-    padding: 400px;                /* Lisää sisällön ympärille 400 pikselin täyte */
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #f4f4f4;
+    border-radius: 100px;
+    margin: 100px;
+    
 }
 
+.misc h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 40px;
+    
+}
+
+.recycling-info {
+    margin-bottom: 100px;
+    
+}
+
+.recycling-info p, .steps-to-recycle ol, .faq ul{
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
+
+.recycling-info h3, .steps-to-recycle h3, .faq h3, .join-program h3, .success-stories h3 {
+    font-size: 24px;
+    color: #2a2a2a;
+    margin-bottom: 20px;
+}
+
+.join-program button {
+    background-color: #1b1b1b;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.join-program button:hover {
+    background-color: #333;
+}
+
+/* Juliste logokuvasäiliöllä */
 .poster_with_logo-img {
-    height: 250px;                 /* Aseta logokuvan korkeus */
-    padding: 200px;                /* Lisää 200px täyte */
-    text-align: center;            /* Tasaa sisältö keskelle */
+    text-align: center;
+    padding: 50px 0;
+}
+
+.poster_with_logo-img img {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.poster_with_logo-img img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsiivinen muotoilu pienemmille näytöille */
+@media (max-width: 768px) {
+    .home-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-header-left img {
+        height: 150px;
+    }
+
+    .home-header-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .panel-content {
+        flex-direction: column;
+    }
+
+    .panel-link {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 2rem;
+    }
+
+    .misc h2 {
+        font-size: 2rem;
+    }
 }
