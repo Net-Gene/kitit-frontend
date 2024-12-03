@@ -6,14 +6,15 @@ import '../styles/Login.css';
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, ] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/login', { username, password }, { withCredentials: true });
+      const response = await axios.post('http://localhost:3001/api/login', 
+        { username, password }, { withCredentials: true });
       console.log('Login successful:', response.data);
       navigate('/home'); // Vie kotisivulle onnistuessa
     } catch (error) {

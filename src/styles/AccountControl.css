@@ -17,58 +17,47 @@
     height: 50px;             /* Aseta napin kuvan korkeus */
 }
 
-.trash_can_icon-img {
-    height: 50px;             /* Aseta napin kuvan korkeus */
-}
-
-.edit_username_header {
+.edit_username_header,
+.edit_password_header,
+.edit_email_header {
     text-align: center;            /* Tasaa sisältö keskelle */
     padding: 20px;                /* Lisää sisällön ympärille 20 pikselin täyte */
 }
 
-.edit_username_textfield {
+.edit_username_textfield,
+.edit_password_textfield,
+.edit_email_textfield {
     display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
     justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
     gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
     margin-bottom: 20px;      /* Lisätään marginaali tämän alle*/                
 }
 
-.username-input {
-    text-align: left;            /* Tasaa sisältö vasemmalle */
-    padding: 20px;
-    height: 10px;
-}
-
-.save_username_button {
+.save_username_button,
+.save_password_button,
+.save_email_button {
     display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
     justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
     gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
-    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/ 
+    margin-bottom: 100px;      /* Lisätään marginaali tämän alle*/ 
 }
 
-.edit_password_header {
-    text-align: center;            /* Tasaa sisältö keskelle */
-    padding: 20px;                /* Lisää sisällön ympärille 20 pikselin täyte */
-}
+.button-save {
+    background-color: rgb(57, 63, 54); /* Punainen tausta */
+    color: white; /* valkoinen teksti */
+    padding: 5px 10px;
+    border: none; /* Ei reunoja */
+    border-radius: 10px; /* Pyöreät nurkat */
+    cursor: pointer; /* Hiiri reagoi nappiin */
+    font-size: 16px;
+  }
 
-.edit_password_textfield {
-    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
-    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
-    gap: 30px;   
-    margin-bottom: 20px;      /* Lisätään marginaali tämän alle*/  
-}
-
-.password-input {
+.username-input,
+.password-input,
+.email-input {
     text-align: left;            /* Tasaa sisältö vasemmalle */
     padding: 20px;
     height: 10px;
-}
-
-.save_password_button {
-    display: flex;             /* Käytä flexboxia vaakasuuntaiseen asetteluun */
-    justify-content: center;   /* Keskitetään sisältö vaakasuunnassa */
-    gap: 30px;                 /* Lisätään objecteille 30px väliä toisistaan*/
-    margin-bottom: 200px;      /* Lisätään marginaali tämän alle*/ 
 }
 
 .button {
@@ -82,13 +71,16 @@
   }
 
   .button-red {
-    background-color: red; /* Punainen tausta */
+    background-color: rgb(180, 29, 29); /* Punainen tausta */
     color: white; /* valkoinen teksti */
     padding: 10px 20px;
     border: none; /* Ei reunoja */
     border-radius: 10px; /* Pyöreät nurkat */
     cursor: pointer; /* Hiiri reagoi nappiin */
     font-size: 16px;
+  }
+  .button-red:hover {
+    background-color: red;
   }
 
   .delete_account_button {

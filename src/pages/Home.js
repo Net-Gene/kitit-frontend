@@ -1,82 +1,68 @@
-
 import React from 'react';
-
 import '../styles/Home.css';
-// Kuvien tuonti komponentissa käytettäväksi
-
 import blank_user_image from '../assets/blank user.png';
 import logo_with_catchphrase from '../assets/Logo with catchphrase.png';
 import poster_with_logo from '../assets/Poster with logo.png';
 
 const Home = () => {
     return (
-    // Pääsäiliö Home-komponentille
-
-    <div class="home">
-      
-      {/* Otsikko-osio */}
-      <div class="home-header">
-        
-        {/* Logon ja tunnuslauseen sisältävän otsikon vasen puoli */}
-        <div class="home-header-left">
-          <img src={logo_with_catchphrase} alt="logo_with_catchphrase" class="logo_with_catchphrase-img"></img>
-        </div>
-        
-        {/* Yhteystiedot ja käyttäjätililinkin sisältävä otsikon oikea puoli */}
-        <div class="home-header-right">
-          <p>
-            Esimerkkitie 1 | 
-            96300 Rovaniemi | 
-            Avoinna MA-PE 10.30-16.30 | 
-            puh. 0400 179000 | 
-            y-0000700-4
-          </p>
-          {/* Linkki tilinhallintasivulle, jossa on käyttäjäkuvake */}
-          <a href="/accountControl">
-            <img src={blank_user_image} alt="blank_user" class="blank_user-img"></img>
-          </a>
-        </div>
-      </div>
-      
-      {/* Pääotsikon osa */}
-      <div class="title">
-        <h1>Etusivu</h1>
-      </div>
-
-      {/* Navigointipaneeli alatunnisteessa */}
-      <nav class="panel">
-        {/* Alatunnisteen sisältösäiliö */}
-        <div class="panel-content">
-            {/* Navigointilinkit */}
-            <div class="panel-links">
-              {/* Luettelo alatunnisteessa olevista linkeistä */}
-              <ul class="panel-link">
-                <li><a href="/about">Tietoa meistä</a></li> {/* Linkki "Tietoja meistä" -sivulle */}
-              </ul>
-              <ul class="panel-link">
-                <li><a href="/orderAppointments">Ajanvaraukseen</a></li> {/* Linkki "Tilaa ja varaus" -sivulle */}
-              </ul>
-              <ul class="panel-link">
-                <li><a href="/services">Palvelut</a></li> {/* Linkki "Palvelut" -sivulle */}
-              </ul>
+        <div className="home">
+            <div className="home-header">
+                <div className="home-header-left">
+                    <img src={logo_with_catchphrase} alt="logo_with_catchphrase" className="logo_with_catchphrase-img" />
+                </div>
+                <div className="home-header-right">
+                    <p>
+                        Esimerkkitie 1 | 96300 Rovaniemi | Avoinna MA-PE 10.30-16.30 | puh. 0400 179000 | y-0000700-4
+                    </p>
+                    <a href="/accountControl">
+                        <img src={blank_user_image} alt="blank_user" className="blank_user-img" />
+                    </a>
+                </div>
             </div>
-          </div>
-      </nav>
-      
-      {/* Sekalaista osio lisäsisällöllä */}
-      <div class="misc">
-        <h2>Muuta?</h2>
-      </div>
-      
-      {/* Kuvasäiliö logolla varustetulle julisteelle */}
-      <div class="poster_with_logo-img">
-        <img src={poster_with_logo} alt="poster_with_logo"></img>
-      </div>
-    </div>
-  
+            <div className="title">
+                <h1>Etusivu</h1>
+            </div>
+            <nav className="panel">
+                <div className="panel-content">
+                    <a href="/about">
+                      <ul className="panel-link">
+                        <li>Tietoa meistä</li>
+                      </ul>
+                    </a>
+                    <a href="/orderAppointments">
+                      <ul className="panel-link">
+                        <li>Ajanvaraukseen</li>
+                      </ul>
+                    </a>
+                    <a href="/services">
+                      <ul className="panel-link">
+                        <li>Palvelut</li>
+                      </ul>
+                    </a>
+                </div>
+            </nav>
+            <div className="misc">
+              <div className="recycling-info">
+                <h3>E-jätteen ympäristövaikutukset</h3>
+                <p>Tiesitkö, että elektroniikkaromu on yksi nopeimmin kasvavista jätevirroista maailmanlaajuisesti? 
+                  Vanhojen laitteiden kierrättäminen on tärkeä askel saastumisen vähentämisessä ja arvokkaiden luonnonvarojen säästämisessä. 
+                  Kierrättämällä elektroniikkaromua autat edistämään kestävämpää tulevaisuutta ja vähentämään e-waste -saasteiden aiheuttamaa ympäristöriskiä.</p>
+              </div>
+              <div className="steps-to-recycle">
+                <h3>Vanhojen laitteidesi kierrätyksen vaiheet</h3>
+                <ol>
+                  <li>1. Toimita vanha elektroniikka kierrätyspisteeseemme.</li>
+                  <li>2. Toimita vanha elektroniikka kierrätyspisteeseemme.</li>
+                  <li>3. Kierrätettävät komponentit käsitellään tehokkaasti, ja vaaralliset materiaalit hävitetään vastuullisesti ympäristöä kunnioittaen.</li>
+                </ol>
+              </div>
+            </div>
+            <div className="poster_with_logo-img">
+                <img src={poster_with_logo} alt="poster_with_logo" />
+            </div>
+        </div>
     );
 };
-
-// Koti-komponentin vieminen käytettäväksi muissa sovelluksen osissa
 
 export default Home;

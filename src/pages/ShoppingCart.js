@@ -27,7 +27,7 @@ const ShoppingCart = () => {
             }));
             setCartItems(formattedItems);
             } catch (error) {
-                console.error('Error fetching orders:', error);
+                console.error('Virhe tilausten noutamisessa:', error);
             }
         };
 
@@ -46,13 +46,13 @@ const ShoppingCart = () => {
     
             if (response.status === 200) {
                 setCartItems(cartItems.filter((item) => item.id !== productId));
-                alert('Product removed successfully');
+                alert('Tuote poistettu onnistuneesti');
             } else {
-                alert(response.data.message || 'Failed to remove product');
+                alert(response.data.message || 'Tuotteen poistaminen epäonnistui');
             }
         } catch (error) {
-            console.error('Error removing product:', error);
-            alert('An error occurred while removing the product', error);
+            console.error('Virhe poistettaessa tuotetta:', error);
+            alert('Tuotetta poistettaessa tapahtui virhe', error);
         }
     };
 
@@ -64,9 +64,32 @@ const ShoppingCart = () => {
     const handleCloseConfirm = () => {
         setIsConfirmVisible(false);
     };
-
-    const handlePurchaseSuccess = () => {
-        setIsPurchaseSuccessful(true);
+    const handlePurchaseSuccess = async (orderId) => {
+        try {
+            const response = await axios.post(
+                'http://localhost:3001/orders/complete',
+                { orderId },
+                { withCredentials: true }
+            );
+    
+            if (response.status === 200) {
+                alert('Ostos suoritettu onnistuneesti');
+                setCartItems([]); // Clear the cart
+                setIsPurchaseSuccessful(true);
+            } else {
+                alert(response.data.message || 'Ostoksen suorittaminen epäonnistui');
+            }
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+                alert("Tuotetunnus tai tilaustunnus puuttuu.");
+            }
+            else if (error.response && error.response.status === 404) {
+                alert("Tuotetta ei löydy ostoskorista.");
+            }
+            else {
+            alert('Ostoa suoritettaessa tapahtui odottamaton virhe: ' + error.message);
+            }
+        }
     };
 
     return (
@@ -101,7 +124,11 @@ const ShoppingCart = () => {
 
 
 
-                    <button className="confirm-purchase" onClick={handleConfirmClick}>
+                    <button
+                        className="confirm-purchase"
+                        onClick={handleConfirmClick}
+                        style={{ display: cartItems.length > 0 ? 'block' : 'none' }}
+                    >
                         Vahvista ostos
                     </button>
 
@@ -109,7 +136,10 @@ const ShoppingCart = () => {
                     {isConfirmVisible && (
                         <div className="confirm-box">
                             <p>Haluatko varmasti vahvistaa tämän ostoksen?</p>
-                            <button className="confirm-yes" onClick={handlePurchaseSuccess}>
+                            <button
+                                className="confirm-yes"
+                                onClick={() => handlePurchaseSuccess(cartItems[0]?.orderId)}
+                            >
                                 Kyllä
                             </button>
                             <button className="confirm-no" onClick={handleCloseConfirm}>
@@ -117,6 +147,7 @@ const ShoppingCart = () => {
                             </button>
                         </div>
                     )}
+
                 </>
             ) : (
                 <div className="confirm-page">

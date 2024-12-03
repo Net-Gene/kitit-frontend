@@ -1,48 +1,84 @@
 .header {
-  display: flex;              /* Käytä flexboxia kohteiden tasaamiseen vaakasuunnassa */
-  justify-content: space-between; /* Logon ja navigoinnin välissä oleva tila */
-  align-items: center;        /* Keskitä kohteet pystysuoraan */
-  padding: 20px 40px;         /* Lisää pehmuste väliä varten */
-  background-color: #333;     /* Tumma taustaväri */
-  color: white;               /* Tekstin väri valkoinen */
+  display: flex;                /* Flexbox for layout */
+  justify-content: space-between; /* Space between groups */
+  align-items: center;          /* Vertically center items */
+  padding: 20px 40px;           /* Add padding for spacing */
+  background-color: #333;       /* Dark background */
+  color: white;                 /* Text color */
 }
 
-/* Logon muotoilu */
+/* Container for the logo and the "Kirjaudu Ulos" link */
+.logo-container {
+  display: flex;                /* Flex for horizontal layout */
+  align-items: center;          /* Vertically center logo and link */
+  gap: 20px;                    /* Space between logo and the "Kirjaudu Ulos" link */
+}
+
+/* Logo styling */
 .logo-img {
-  height: 50px;               /* Aseta logon korkeus */
+  height: 50px;                 /* Set logo height */
 }
 
-/* Navigointipalkin säiliö */
+/* Navigation bar */
 .navbar {
-  display: flex;              /* Näytä linkit vaakasuorassa rivissä */
+  display: flex;                /* Flex layout for navigation links */
 }
 
-/* Navigointilinkkien muotoilu */
+/* Navigation links styling */
 .nav-links {
-  list-style: none;           /* Poista luettelon oletustyyli */
-  margin: 0;                  /* Poista oletusmarginaali */
-  padding: 0;                 /* Poista oletustäyte */
-  display: flex;              /* Joustava näyttö linkeille */
-  align-items: center;
+  list-style: none;             /* Remove default list style */
+  margin: 0;                    /* Remove default margin */
+  padding: 0;                   /* Remove default padding */
+  display: flex;                /* Flex for horizontal links */
+  align-items: center;          /* Vertically center the links */
 }
 
-/* Yksilöllinen linkin muotoilu */
+/* Styling for individual links */
 .nav-links li {
-  margin: 0 20px;             /* Lisää tilaa linkkien väliin */
+  margin: 0 20px;               /* Add space between links */
 }
 
-/* Linkin muotoilu */
+/* Link styling */
 .nav-links a {
-  color: white;               /* Linkkien väri valkoinen */
-  text-decoration: none;      /* Poista linkeistä alleviivaus */
-  font-size: 16px;            /* Aseta fonttikoko */
-  transition: color 0.3s ease;/* Tasainen siirtymä leijuva vaikutus */
+  color: white;                 /* Set link color */
+  text-decoration: none;        /* Remove underline from links */
+  font-size: 16px;              /* Set font size */
+  transition: color 0.3s ease;  /* Smooth transition on hover */
 }
 
-/* Hover-tehoste linkeille */
-.nav-links a:hover {
-  color: #00bcd4;             /* Muuta linkin väriä viemällä hiiri */
+.nav-links i {
+  font-size: 25px;              /* Set font size */
+  margin-left: 50px;
 }
+
+/* Hover effect on links */
+.nav-links a:hover {
+  color: #00bcd4;               /* Change color on hover */
+}
+
 .icon {
-  font-size: 25px;
+  font-size: 25px;              /* Set icon size */
+}
+
+/* Yleiset painiketyylit */
+.button {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Poistetut painiketyylit */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Painike Hover -efekti */
+button:hover {
+  background-color: #346da7;
 }

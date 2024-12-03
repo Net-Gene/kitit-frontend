@@ -1,78 +1,121 @@
 /* Global styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
-    position: relative;
+about_body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+  background-color: #f9f9f9;
+  color: #333;
+}
 
-  }
-  .back-btn {
-    font-size: 30px;
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
-    position: absolute;
-    margin: 22;
-    
-  }  
-  .hero {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #f2f2f2;
-  }
-  
-  .hero h1 {
-    font-size: 3rem;
-    margin: 0;
-  }
-  
-  .hero p {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  
-  /* Content section */
-  .content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .content-item {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    align-items: center;
-  }
-  
-  .content-image {
-    width: 50%;
-    height: 200px;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .content-image::before {
-    content: "Image Placeholder";
-    color: #aaa;
-  }
-  
-  .content-text {
-    width: 50%;
-  }
-  
-  .content-text h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-  }
-  
-  .content-text p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  
+.back-btn {
+  background: #ac95229c ;
+  padding: 10px 15px ;
+  border-radius: 5px ;
+  cursor: pointer ;
+  position: absolute ;
+  top: 20px ;
+  left: 20px ;
+  text-decoration: none ;
+  margin-top: 100px ;
+  font-size: 25px ;
+}
+
+.back-btn:hover {
+  background: #ac9522 ;
+  transition: transform 0.3s ease ;
+  transform: scale(1.20) ;
+}
+
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #302c179c;
+  color: white;
+  border-bottom: 5px solid #ac95229c;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #f1f1f1;
+}
+
+/* Content Section */
+.content {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.content-item {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-content: space-around;
+}
+/* Reverse layout for even items */
+.content-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Align text to the left or right based on the layout */
+.content-item:nth-child(even) .content-text {
+  text-align: left; /* For consistency with reversed layout */
+}
+
+.content-item:nth-child(odd) .content-text {
+  text-align: right; /* Optional: Keep consistent text alignment */
+}
+
+/* Hover effect */
+.content-item:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.05);
+}
+
+
+/* Text alignment and spacing for text container */
+.content-text {
+  width: 50%; /* Ensure proper spacing */
+  text-align: left; /* Default alignment */
+  display: flex;
+  flex-direction: column; /* For consistent spacing between heading and text */
+  justify-content: center;
+
+
+}
+
+.content-text h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #a39b28;
+}
+
+.content-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0; /* Remove unnecessary spacing */
+}
+
+/* Ensure images maintain proper size */
+.content-image {
+  width: 50%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 250px; /* Constrain height for uniformity */
+  display: block;
+  object-fit: cover; /* Ensure the image fits nicely */
+  border-radius: 8px;
+}
