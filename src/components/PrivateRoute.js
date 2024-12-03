@@ -15,9 +15,9 @@ const PrivateRoute = () => {
           setIsAuthenticated(true);
         }
       } catch (error) {
+        alert("Virhe 'PrivateRoute' komponentin kanssa: " + error.message)
         setIsAuthenticated(false);
       } finally {
-
         setLoading(false);
       }
     };
