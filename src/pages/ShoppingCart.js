@@ -16,7 +16,7 @@ const ShoppingCart = () => {
         // Hae tilaukset taustajärjestelmästä, kun komponentti on asennettu
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/orders', { withCredentials: true });
+                const response = await axios.get('http://localhost:3001/api/products/get-orders', { withCredentials: true });
                 const formattedItems = response.data.map((item) => ({
                 id: item.product_id,
                 orderId: item.order_id,
@@ -27,7 +27,7 @@ const ShoppingCart = () => {
             }));
             setCartItems(formattedItems);
             } catch (error) {
-                console.error('Virhe tilausten noutamisessa:', error);
+                alert('Virhe tilausten noutamisessa:' + error.message);
             }
         };
 
@@ -39,7 +39,7 @@ const ShoppingCart = () => {
     // tuotteen poisto
     const removeProduct = async (productId, orderId) => {
         try {
-            const response = await axios.delete('http://localhost:3001/remove-from-cart', {
+            const response = await axios.delete('http://localhost:3001/api/products/remove-from-cart', {
                 withCredentials: true,
                 data: { productId, orderId },
             });
@@ -67,7 +67,7 @@ const ShoppingCart = () => {
     const handlePurchaseSuccess = async (orderId) => {
         try {
             const response = await axios.post(
-                'http://localhost:3001/orders/complete',
+                'http://localhost:3001/api/products/complete-order',
                 { orderId },
                 { withCredentials: true }
             );

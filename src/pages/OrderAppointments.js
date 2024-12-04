@@ -31,7 +31,7 @@ const OrderAppointments = () => {
    // Fetch user ID on component mount
    useEffect(() => {
     axios
-      .get('http://localhost:3001/api/user', { withCredentials: true })
+      .get('http://localhost:3001/api/auth/check-auth-token', { withCredentials: true })
       .then((response) => {
         console.log('Fetched User ID:', response.data.userId);
         setUserId(response.data.userId); // Store user ID
@@ -59,7 +59,7 @@ const OrderAppointments = () => {
       const formattedDate = selectedDate.toISOString().split("T")[0];
 
       const response = await axios.get(
-        `http://localhost:3001/api/appointments/available?date=${formattedDate}`
+        `http://localhost:3001/api/appointments/reserved-appointments?date=${formattedDate}`
       );
 
     // Jos varattuja paikkoja ei ole, aseta tyhjä joukko
@@ -130,7 +130,7 @@ const OrderAppointments = () => {
       // Lähetä tiedot API:lle
 
 
-      await axios.post("http://localhost:3001/api/appointments", {
+      await axios.post("http://localhost:3001/api/appointments/book-appointment", {
         date: formattedDate,
         user_id: userId, // Use the fetched user ID
         start_time: formattedStartTime,

@@ -10,7 +10,7 @@ const PrivateRoute = () => {
     const checkAuth = async () => {
       try {
         // Send a request to the server to validate the token
-        const response = await axios.get('http://localhost:3001/api/user', { withCredentials: true });
+        const response = await axios.get('http://localhost:3001/api/auth/check-auth-token', { withCredentials: true });
         if (response.status === 200) {
           setIsAuthenticated(true);
         }

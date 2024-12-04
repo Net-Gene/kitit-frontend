@@ -9,7 +9,7 @@ const Purchase = () => {
   // Haetaan user id
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/user', { withCredentials: true })
+      .get('http://localhost:3001/api/auth/check-auth-token', { withCredentials: true })
       .then((response) => {
         console.log('Fetched User ID:', response.data.userId);
         setUserId(response.data.userId);
@@ -23,7 +23,7 @@ const Purchase = () => {
   // Hae tuotteet taustajärjestelmästä
 
   useEffect(() => {
-    axios.get('http://localhost:3001')
+    axios.get('http://localhost:3001/api/products/get-products')
       .then((response) => {
         setProducts(response.data);  // Säilytä tuotteet kunnossa
 
@@ -41,7 +41,7 @@ const Purchase = () => {
     const quantity = 1; // Olettaen, että käyttäjä lisää yhden kohteen kerrallaan, mutta voit muokata sitä käyttäjän syötteen perusteella.
 
 
-    axios.post('http://localhost:3001/add-to-cart', {
+    axios.post('http://localhost:3001/api/products/add-to-cart', {
       productId,
       quantity,
       userId

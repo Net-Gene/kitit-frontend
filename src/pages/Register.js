@@ -22,13 +22,13 @@ const Register = () => {
       return;
     }
     try {
-      await axios.post('http://localhost:3001/api/register', { username, password }, { withCredentials: true });
-      alert('Registration successful!');
+      await axios.post('http://localhost:3001/api/auth/register', { username, password }, { withCredentials: true });
+      alert('Rekisteröityminen onnistui!');
       navigate('/'); // Vie login sivulle onnistuessa
     } catch (error) {
-      alert('An error occurred while registering.');
+      alert('Rekisteröinnin aikana tapahtui virhe.');
       console.error('Registration error:', error);
-      setError(error.response?.data?.message || 'An error occurred while registering.');
+      setError(error.response?.data?.message || 'Rekisteröinnin aikana tapahtui virhe.');
     }
   };
 
@@ -46,12 +46,7 @@ const Register = () => {
         <input type="password" placeholder="Uusi salasana" value={password} onChange={(e) => setPassword(e.target.value)} className="register-form-box" name="password"/>
         <input type="password" placeholder="Kirjoita uudelleen uusi salasana"
         value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="register-form-box" name="confirmPassword"/>
-
-        <ul class="register-form-confirm">
-            <li>
-              <button onClick={handleRegister}>Rekisteröidy</button>
-            </li>
-        </ul>
+        <button class="register-form-confirm" onClick={handleRegister}>Rekisteröidy</button>
         <div class="login-link">
             <p>Onko sinulla jo käyttäjä? </p>
             <a href="/" >Kirjaudu sisään</a>
