@@ -3,7 +3,9 @@ import '../styles/AccountControl.css';
 import Button from '../components/Button';
 import edit_pen_icon from '../assets/edit-pen-icon.png';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';  // useNavigate instead of useHistory
+import { useNavigate } from 'react-router-dom';  // useNavigoi useHistoryn tapahtuma
+
+
 
 const AccountControl = () => {
   const navigate = useNavigate(); 
@@ -15,19 +17,22 @@ const AccountControl = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/user', {
-          withCredentials: true, // Ensure cookies are sent with the request
+        const response = await axios.get('http://localhost:3001/api/auth/check-auth-token', {
+          withCredentials: true, // Varmista, että evästeet lähetetään pyynnön mukana
+
+
         });
 
-        alert('API Response:', response.data);
 
         if (response.status === 200) {
-          setUserId(response.data.userId); // Assuming backend sends userId, username, email
+          setUserId(response.data.userId); // Olettaen, että taustajärjestelmä lähettää käyttäjätunnuksen, käyttäjätunnuksen, sähköpostin
+
+
         } else {
-          console.error('Failed to fetch user data');
+          alert('Käyttäjätietojen nouto epäonnistui');
         }
       } catch (error) {
-        console.error('Error fetching user data:', error);
+        alert('Virhe haettaessa käyttäjätietoja: ', error);
       }
     };
 
@@ -48,83 +53,107 @@ const AccountControl = () => {
 
   const handleSaveUsername = async () => {
     if (!userId) {
-      alert('User not logged in.');
+      alert('Käyttäjä ei ole kirjautunut sisään.');
       return;
     }
       try {
-        const response = await axios.post('http://localhost:3001/api/update-username', 
+        const response = await axios.post('http://localhost:3001/api/user/update-username', 
           { username: userData.username, userId }
         );
 
         if (response.status === 200) {
-          console.log('Username updated successfully');
+          alert('Käyttäjätunnus päivitetty onnistuneesti');
         } else {
-          console.error('Failed to update username');
+          alert('Käyttäjätunnuksen päivittäminen epäonnistui');
         }
       } catch (error) {
-        console.error('Error updating username:', error);
+        alert('Virhe päivitettäessä käyttäjätunnusta: ', error);
       }
   };
 
   const handleSavePassword = async () => {
     if (!userId) {
-      alert('User not logged in.');
+      alert('Käyttäjä ei ole kirjautunut sisään.');
       return;
     }
       try {
-        const response = await axios.post('http://localhost:3001/api/update-password', 
+        const response = await axios.post('http://localhost:3001/api/user/update-password', 
           { password: userData.password, userId }
         );
 
       if (response.status === 200) {
-        console.log('Password updated successfully');
+        console.log('Salasana päivitetty onnistuneesti');
       } else {
-        console.error('Failed to update password');
+        alert('Salasanan päivitys epäonnistui');
       }
     } catch (error) {
-      console.error('Error updating password:', error);
+      alert('Virhe salasanan päivityksessä: ', error);
     }
   };
 
   const handleSaveEmail = async () => {
     if (!userId) {
-      alert('User not logged in.');
+      alert('Käyttäjä ei ole kirjautunut sisään.');
       return;
     }
-      try {
-        const response = await axios.post('http://localhost:3001/api/update-email', 
-          { email: userData.email, userId }
-        );
+  
+    // Vahvista sähköpostin muoto käyttämällä yksinkertaista regex-mallia
 
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(userData.email)) {
+      alert('Sähköposti ei ole kelvollisessa muodossa.');
+      return;
+    }
+  
+    try {
+      const response = await axios.post('http://localhost:3001/api/user/update-email', 
+        { email: userData.email, userId }
+      );
+  
       if (response.status === 200) {
-        console.log('Email updated successfully');
+        alert('Sähköpostin päivitys onnistui');
       } else {
-        console.error('Failed to update email');
+        alert('Sähköpostin päivittäminen epäonnistui');
       }
     } catch (error) {
-      console.error('Error updating email:', error);
+      alert('Virhe päivitettäessä sähköpostia: ', error);
     }
   };
+  
+  const clearCookie = async () => {
+    try {
+      await axios.post('http://localhost:3001/api/auth/clearCookie', {}, { withCredentials: true })
 
+      alert('"Cookies" tyhjennetty onnistuneesti!');
+      navigate('/'); // Käytä navigointia ohjataksesi kirjautumissivulle
+
+
+    } catch (error) {
+      alert(`Virhe "Cookies" tyhjennyksessä : ${error.response?.data?.message || error.message}`);
+    }
+  };
   const handleDeleteAccount = async () => {
     if (!userId) {
-      alert('User not logged in.');
+      alert('Käyttäjä ei ole kirjautunut sisään.');
       return;
     }
       try {
-        const response = await axios.delete('http://localhost:3001/api/delete-account', {
+        const response = await axios.delete('http://localhost:3001/api/user/delete-account', {
           data: { userId }, 
         });
   
       if (response.status === 200) {
-        console.log('Account deleted successfully');
-        // Navigate to home page after account deletion
-        navigate('/');  // Navigate after deleting account
+        console.log('Tilin poistaminen onnistui');
+        // Siirry kotisivulle tilin poistamisen jälkeen
+
+
+        clearCookie();
+
       } else {
-        console.error('Failed to delete account');
+        alert('Tilin poistaminen epäonnistui');
       }
     } catch (error) {
-      console.error('Error deleting account:', error);
+      alert('Virhe poistettaessa tiliä: ', error);
     }
   };
 
