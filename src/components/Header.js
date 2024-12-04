@@ -2,7 +2,7 @@ import '../styles/Header.css';
 import logo from '../assets/Logo.png'
 import axios from "axios";
 import Button from "../components/Button";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import BASE_URL from './config'; 
 
 const Header = () => {
@@ -32,16 +32,16 @@ const Header = () => {
         </Button>
       </div>
 
-      {/* Navigointivalikko */}
-        <nav class="navbar">
-          <ul class="nav-links">
-            <li><a href="/home">Etusivu</a></li>
-            <li><a href="/about">Tietoa meistä</a></li>
-            <li><a href="/orderAppointments">Tee ajanvaraus</a></li>
-            <li><a href="/services">Palvelut</a></li>
-            <li><a href="/shoppingCart"><span class="icon">&#128722;</span></a></li>
-          </ul>
-        </nav>
+       {/* Navigation menu */}
+       <nav className="navbar">
+        <ul className="nav-links">
+          <li><Link to="/home">Etusivu</Link></li>
+          <li><Link to="/about">Tietoa meistä</Link></li>
+          <li><Link to="/orderAppointments">Tee ajanvaraus</Link></li>
+          <li><Link to="/services">Palvelut</Link></li>
+          <li><Link to="/shoppingCart"><span className="icon">&#128722;</span></Link></li>
+        </ul>
+      </nav>
       </header>
     );
   };

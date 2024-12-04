@@ -6,6 +6,7 @@ import "../styles/OrderAppointments.css";
 import Button from "../components/Button";
 import axios from "axios";
 import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const OrderAppointments = () => {
   const [date, setDate] = useState(new Date()); // Valittu päivämäärä
@@ -32,7 +33,7 @@ const OrderAppointments = () => {
    // Fetch user ID on component mount
    useEffect(() => {
     axios
-      .get('http://localhost:3001/api/auth/check-auth-token', { withCredentials: true })
+      .get(`${BASE_URL}/api/auth/check-auth-token`, { withCredentials: true })
       .then((response) => {
         console.log('Fetched User ID:', response.data.userId);
         setUserId(response.data.userId); // Store user ID
@@ -191,7 +192,7 @@ const OrderAppointments = () => {
   return (
     <div className="orderAppointments">
       {/* Takaisin painike */}
-      <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
+      <Link to="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></Link>
 
       {/* Kalenteri */}
       <div className="calendar-container">

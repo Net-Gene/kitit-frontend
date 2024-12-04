@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Register.css';
 import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -50,7 +51,7 @@ const Register = () => {
         <button class="register-form-confirm" onClick={handleRegister}>Rekisteröidy</button>
         <div class="login-link">
             <p>Onko sinulla jo käyttäjä? </p>
-            <a href="/" >Kirjaudu sisään</a>
+            <Link to="/">Kirjaudu sisään</Link>
         </div>
       </div>
     </div>

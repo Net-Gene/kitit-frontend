@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Login.css';
 import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -39,7 +40,7 @@ const Login = () => {
 
       <div class="register-link">
           <p>Eikö sinulla ole tiliä? </p>
-          <a href="/register" >Rekisteröidy</a>
+          <Link to="/register">Rekisteröidy</Link>
       </div>
     </div>
   </div>

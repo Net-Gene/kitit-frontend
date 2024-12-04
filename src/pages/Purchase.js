@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/Purchase.css';
 import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const Purchase = () => {
   const [products, setProducts] = useState([]);
@@ -10,7 +11,7 @@ const Purchase = () => {
   // Haetaan user id
   useEffect(() => {
     axios
-      .get('http://localhost:3001/api/auth/check-auth-token', { withCredentials: true })
+      .get(`${BASE_URL}/api/auth/check-auth-token`, { withCredentials: true })
       .then((response) => {
         console.log('Fetched User ID:', response.data.userId);
         setUserId(response.data.userId);
@@ -58,7 +59,8 @@ const Purchase = () => {
 
   return (
     <div className="purchase-page">
-    <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
+    <Link to="/services"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></Link>
+
       <header>
         <h1>Tilaa ja osta</h1>
         <p>Valitse ostettavat tuotteet</p>

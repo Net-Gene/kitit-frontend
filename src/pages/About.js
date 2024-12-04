@@ -5,11 +5,12 @@ import Circular_Economy from '../assets/Circular_Economy.jpg';
 import common_repairs_on_laptop from '../assets/common_repairs_on_laptop.jpg';
 import recycling from '../assets/recycling.png';
 import a_robot_recycling from '../assets/a_robot_recycling.jpg';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
     <div className="about_body">
-      <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
+      <Link to="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></Link>
       <main>
         <section className="hero">
           <h1>Kit-IT</h1>

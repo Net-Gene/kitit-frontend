@@ -4,6 +4,7 @@ import fallout_boy from '../assets/fallout boy.png';
 
 import '../styles/ShoppingCart.css';
 import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const ShoppingCart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -95,10 +96,12 @@ const ShoppingCart = () => {
 
     return (
         <div className="cart-page">
+
             {/* Näytä ostoskorin sisältö tai menestysviesti ehdollisesti */}
             {!isPurchaseSuccessful ? (
                 <>
                     <header>
+                        <Link to="/home"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></Link>
                         <h1>Ostoskori</h1>
                         <p>Tarkista tuotteet</p>
                     </header>
@@ -161,7 +164,7 @@ const ShoppingCart = () => {
                         <p>Tilauksesi on käsitelty. </p>
                         <p>Kierrätit vastuullisesti, kiitos ostoksista kanssamme!</p>
                     </div>
-                    <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
+                        <Link to="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></Link>
                     </div>
             )}
         </div>

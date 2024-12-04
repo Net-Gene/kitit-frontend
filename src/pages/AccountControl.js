@@ -5,6 +5,7 @@ import edit_pen_icon from '../assets/edit-pen-icon.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // useNavigoi useHistoryn tapahtuma
 import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 
 
@@ -58,7 +59,7 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.post(`${BASE_URL}/api/auth/update-username`, 
+        const response = await axios.post(`${BASE_URL}/api/user/update-username`, 
           { username: userData.username, userId }
         );
 
@@ -160,7 +161,7 @@ const AccountControl = () => {
 
   return (
     <div className="accountControl">
-      <div className="back-button"><a href="/home"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></a></div>
+      <Link to="/home"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></Link>
 
       <div className="edit_username_header"><h1>Edit Username</h1></div>
       <div className="edit_username_textfield">
