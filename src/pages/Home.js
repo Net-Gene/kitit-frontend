@@ -3,6 +3,7 @@ import '../styles/Home.css';
 import blank_user_image from '../assets/blank user.png';
 import logo_with_catchphrase from '../assets/Logo with catchphrase.png';
 import poster_with_logo from '../assets/Poster with logo.png';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -15,9 +16,9 @@ const Home = () => {
                     <p>
                         Esimerkkitie 1 | 96300 Rovaniemi | Avoinna MA-PE 10.30-16.30 | puh. 0400 179000 | y-0000700-4
                     </p>
-                    <a href="/accountControl">
+                    <Link to="/accountControl">
                         <img src={blank_user_image} alt="blank_user" className="blank_user-img" />
-                    </a>
+                    </Link>
                 </div>
             </div>
             <div className="title">
@@ -25,21 +26,9 @@ const Home = () => {
             </div>
             <nav className="panel">
                 <div className="panel-content">
-                    <a href="/about">
-                      <ul className="panel-link">
-                        <li>Tietoa meistä</li>
-                      </ul>
-                    </a>
-                    <a href="/orderAppointments">
-                      <ul className="panel-link">
-                        <li>Ajanvaraukseen</li>
-                      </ul>
-                    </a>
-                    <a href="/services">
-                      <ul className="panel-link">
-                        <li>Palvelut</li>
-                      </ul>
-                    </a>
+                  <Link to="/about"><ul className="panel-link">Tietoa meistä</ul></Link>
+                  <Link to="/orderAppointments"><ul className="panel-link">Ajanvaraukseen</ul></Link>
+                  <Link to="/services"><ul className="panel-link">Palvelut</ul></Link>
                 </div>
             </nav>
             <div className="misc">

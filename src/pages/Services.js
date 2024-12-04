@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Service.css';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   // Function to show alert for upcoming features
@@ -9,19 +10,15 @@ const Services = () => {
 
   return (
     <div className="content">
-      <a href="/service">
-        <button className="back-btn-service">
-          <i className="fa-solid fa-arrow-left"></i>
-        </button>
-      </a>
+      <Link to="/home"><button className="back-btn-service"><i className="fa-solid fa-arrow-left"></i></button></Link>
       <div className="grid">
         <div className="item">
-          <a href="/purchase">
+          <Link to="/purchase">
             <button className="service-btn">
               Osta Laite
               <span className="icon">&#128722;</span>
             </button>
-          </a>
+          </Link>
         </div>
         <div className="item">
           <button className="service-btn" onClick={handleComingSoon}>

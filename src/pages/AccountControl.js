@@ -5,6 +5,9 @@ import edit_pen_icon from '../assets/edit-pen-icon.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // useNavigoi useHistoryn tapahtuma
 
+import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
+
 
 
 const AccountControl = () => {
@@ -17,8 +20,9 @@ const AccountControl = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/auth/check-auth-token', {
+        const response = await axios.get(`${BASE_URL}/api/auth/check-auth-token`, {
           withCredentials: true, // Varmista, että evästeet lähetetään pyynnön mukana
+
 
 
         });
@@ -28,11 +32,12 @@ const AccountControl = () => {
           setUserId(response.data.userId); // Olettaen, että taustajärjestelmä lähettää käyttäjätunnuksen, käyttäjätunnuksen, sähköpostin
 
 
+
         } else {
           alert('Käyttäjätietojen nouto epäonnistui');
         }
       } catch (error) {
-        alert('Virhe haettaessa käyttäjätietoja: ', error);
+        alert('Virhe haettaessa käyttäjätietoja: '+ error);
       }
     };
 
@@ -57,7 +62,7 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.post('http://localhost:3001/api/user/update-username', 
+        const response = await axios.post(`${BASE_URL}/api/user/update-username`, 
           { username: userData.username, userId }
         );
 
@@ -67,7 +72,7 @@ const AccountControl = () => {
           alert('Käyttäjätunnuksen päivittäminen epäonnistui');
         }
       } catch (error) {
-        alert('Virhe päivitettäessä käyttäjätunnusta: ', error);
+        alert('Virhe päivitettäessä käyttäjätunnusta: ' + error);
       }
   };
 
@@ -77,17 +82,17 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.post('http://localhost:3001/api/user/update-password', 
+        const response = await axios.post(`${BASE_URL}/api/user/update-password`, 
           { password: userData.password, userId }
         );
 
       if (response.status === 200) {
-        console.log('Salasana päivitetty onnistuneesti');
+        alert('Salasana päivitetty onnistuneesti');
       } else {
         alert('Salasanan päivitys epäonnistui');
       }
     } catch (error) {
-      alert('Virhe salasanan päivityksessä: ', error);
+      alert('Virhe salasanan päivityksessä: ' + error);
     }
   };
 
@@ -99,6 +104,7 @@ const AccountControl = () => {
   
     // Vahvista sähköpostin muoto käyttämällä yksinkertaista regex-mallia
 
+
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailPattern.test(userData.email)) {
       alert('Sähköposti ei ole kelvollisessa muodossa.');
@@ -106,7 +112,7 @@ const AccountControl = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:3001/api/user/update-email', 
+      const response = await axios.post(`${BASE_URL}/api/user/update-email`, 
         { email: userData.email, userId }
       );
   
@@ -116,16 +122,17 @@ const AccountControl = () => {
         alert('Sähköpostin päivittäminen epäonnistui');
       }
     } catch (error) {
-      alert('Virhe päivitettäessä sähköpostia: ', error);
+      alert('Virhe päivitettäessä sähköpostia: '+ error);
     }
   };
   
   const clearCookie = async () => {
     try {
-      await axios.post('http://localhost:3001/api/auth/clearCookie', {}, { withCredentials: true })
+      await axios.post(`${BASE_URL}/api/auth/clearCookie`, {}, { withCredentials: true })
 
       alert('"Cookies" tyhjennetty onnistuneesti!');
       navigate('/'); // Käytä navigointia ohjataksesi kirjautumissivulle
+
 
 
     } catch (error) {
@@ -138,13 +145,14 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.delete('http://localhost:3001/api/user/delete-account', {
+        const response = await axios.delete(`${BASE_URL}/api/user/delete-account`, {
           data: { userId }, 
         });
   
       if (response.status === 200) {
-        console.log('Tilin poistaminen onnistui');
+        alert('Tilin poistaminen onnistui');
         // Siirry kotisivulle tilin poistamisen jälkeen
+
 
 
         clearCookie();
@@ -153,13 +161,13 @@ const AccountControl = () => {
         alert('Tilin poistaminen epäonnistui');
       }
     } catch (error) {
-      alert('Virhe poistettaessa tiliä: ', error);
+      alert('Virhe poistettaessa tiliä: '+ error);
     }
   };
 
   return (
     <div className="accountControl">
-      <div className="back-button"><a href="/home"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></a></div>
+      <Link to="/home"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></Link>
 
       <div className="edit_username_header"><h1>Edit Username</h1></div>
       <div className="edit_username_textfield">

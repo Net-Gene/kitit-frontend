@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Login.css';
+import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -13,7 +15,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/login', 
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, 
         { username, password }, { withCredentials: true });
       console.log('Kirjautuminen onnistui: ', response.data);
       navigate('/home'); // Vie kotisivulle onnistuessa
@@ -38,7 +40,7 @@ const Login = () => {
 
       <div class="register-link">
           <p>Eikö sinulla ole tiliä? </p>
-          <a href="/register" >Rekisteröidy</a>
+          <Link to="/register">Rekisteröidy</Link>
       </div>
     </div>
   </div>

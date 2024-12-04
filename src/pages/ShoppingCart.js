@@ -3,6 +3,8 @@ import axios from 'axios';
 import fallout_boy from '../assets/fallout boy.png';
 
 import '../styles/ShoppingCart.css';
+import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const ShoppingCart = () => {
     const [cartItems, setCartItems] = useState([]);
@@ -14,9 +16,10 @@ const ShoppingCart = () => {
 
     useEffect(() => {
         // Hae tilaukset taustajärjestelmästä, kun komponentti on asennettu
+
         const fetchOrders = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/products/get-orders', { withCredentials: true });
+                const response = await axios.get(`${BASE_URL}/api/products/get-orders`, { withCredentials: true });
                 const formattedItems = response.data.map((item) => ({
                 id: item.product_id,
                 orderId: item.order_id,
@@ -37,9 +40,10 @@ const ShoppingCart = () => {
 
 
     // tuotteen poisto
+
     const removeProduct = async (productId, orderId) => {
         try {
-            const response = await axios.delete('http://localhost:3001/api/products/remove-from-cart', {
+            const response = await axios.delete(`${BASE_URL}/api/products/remove-from-cart`, {
                 withCredentials: true,
                 data: { productId, orderId },
             });
@@ -67,14 +71,15 @@ const ShoppingCart = () => {
     const handlePurchaseSuccess = async (orderId) => {
         try {
             const response = await axios.post(
-                'http://localhost:3001/api/products/complete-order',
+                `${BASE_URL}/api/products/complete-order`,
                 { orderId },
                 { withCredentials: true }
             );
     
             if (response.status === 200) {
                 alert('Ostos suoritettu onnistuneesti');
-                setCartItems([]); // Clear the cart
+                setCartItems([]); // Tyhjennä kärry
+
                 setIsPurchaseSuccessful(true);
             } else {
                 alert(response.data.message || 'Ostoksen suorittaminen epäonnistui');
@@ -94,10 +99,12 @@ const ShoppingCart = () => {
 
     return (
         <div className="cart-page">
+
             {/* Näytä ostoskorin sisältö tai menestysviesti ehdollisesti */}
             {!isPurchaseSuccessful ? (
                 <>
                     <header>
+                        <Link to="/home"><button className="back-btn"><i className="fa-solid fa-arrow-left"></i></button></Link>
                         <h1>Ostoskori</h1>
                         <p>Tarkista tuotteet</p>
                     </header>
@@ -160,10 +167,8 @@ const ShoppingCart = () => {
                         <p>Tilauksesi on käsitelty. </p>
                         <p>Kierrätit vastuullisesti, kiitos ostoksista kanssamme!</p>
                     </div>
-                    <a href="/home">
-                        <button className="back-btn">&larr; Etusivulle</button>
-                    </a>
-                </div>
+                        <Link to="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></Link>
+                    </div>
             )}
         </div>
     );

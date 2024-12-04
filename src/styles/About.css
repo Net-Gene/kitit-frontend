@@ -1,4 +1,4 @@
-/* Global styles */
+/* Globaalit tyylit */
 about_body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -27,7 +27,7 @@ about_body {
 }
 
 
-/* Hero Section */
+/* Sankari-osasto */
 .hero {
   text-align: center;
   padding: 50px 20px;
@@ -46,7 +46,7 @@ about_body {
   color: #f1f1f1;
 }
 
-/* Content Section */
+/* Sisältö-osio */
 .content {
   padding: 40px 20px;
   display: flex;
@@ -65,33 +65,33 @@ about_body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   justify-content: space-around;
 }
-/* Reverse layout for even items */
+/* Käänteinen asettelu tasaisille kohteille */
 .content-item:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-/* Align text to the left or right based on the layout */
+/* Tasaa teksti vasemmalle tai oikealle asettelun mukaan */
 .content-item:nth-child(even) .content-text {
-  text-align: left; /* For consistency with reversed layout */
+  text-align: left; /* Johdonmukaisuus käänteisen asettelun kanssa */
 }
 
 .content-item:nth-child(odd) .content-text {
-  text-align: right; /* Optional: Keep consistent text alignment */
+  text-align: right; /* Valinnainen: Säilytä johdonmukainen tekstin tasaus */
 }
 
-/* Hover effect */
+/* Hover-tehoste */
 .content-item:hover {
   transition: transform 0.3s ease;
   transform: scale(1.05);
 }
 
 
-/* Text alignment and spacing for text container */
+/* Tekstin tasaus ja välilyönti tekstisäiliössä */
 .content-text {
-  width: 50%; /* Ensure proper spacing */
-  text-align: left; /* Default alignment */
+  width: 50%; /* Varmista oikea väli */
+  text-align: left; /* Oletuskohdistus */
   display: flex;
-  flex-direction: column; /* For consistent spacing between heading and text */
+  flex-direction: column; /* Johdonmukainen välilyönti otsikon ja tekstin välillä */
   justify-content: center;
 
 
@@ -107,15 +107,15 @@ about_body {
   font-size: 1rem;
   line-height: 1.6;
   color: #555;
-  margin: 0; /* Remove unnecessary spacing */
+  margin: 0; /* Poista tarpeettomat välit */
 }
 
-/* Ensure images maintain proper size */
+/* Varmista, että kuvat pysyvät oikeankokoisina */
 .content-image {
   width: 50%;
-  height: auto; /* Maintain aspect ratio */
-  max-height: 250px; /* Constrain height for uniformity */
+  height: auto; /* Säilytä kuvasuhde */
+  max-height: 250px; /* Rajoita korkeutta tasaisuuden vuoksi */
   display: block;
-  object-fit: cover; /* Ensure the image fits nicely */
+  object-fit: cover; /* Varmista, että kuva sopii hyvin */
   border-radius: 8px;
 }

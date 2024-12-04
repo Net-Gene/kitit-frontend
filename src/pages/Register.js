@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Register.css';
+import BASE_URL from '../components/config'; 
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -22,9 +24,10 @@ const Register = () => {
       return;
     }
     try {
-      await axios.post('http://localhost:3001/api/auth/register', { username, password }, { withCredentials: true });
+      await axios.post(`${BASE_URL}/api/auth/register`, { username, password }, { withCredentials: true });
       alert('Rekisteröityminen onnistui!');
       navigate('/'); // Vie login sivulle onnistuessa
+
     } catch (error) {
       alert('Rekisteröinnin aikana tapahtui virhe.');
       console.error('Registration error:', error);
@@ -36,9 +39,10 @@ const Register = () => {
     return (
     // Pääsäiliö register-komponentille
 
+
     <div class="register">
       
-      {/* Otsikko-osio */}
+      {/* Otsikko osio */}
       <div class="register-form">
         <h3>Rekisteröidy</h3>
         {error && <p className="error">{error}</p>}
@@ -49,7 +53,7 @@ const Register = () => {
         <button class="register-form-confirm" onClick={handleRegister}>Rekisteröidy</button>
         <div class="login-link">
             <p>Onko sinulla jo käyttäjä? </p>
-            <a href="/" >Kirjaudu sisään</a>
+            <Link to="/">Kirjaudu sisään</Link>
         </div>
       </div>
     </div>
@@ -57,5 +61,6 @@ const Register = () => {
 };
 
 // register-komponentin vieminen käytettäväksi muissa sovelluksen osissa
+
 
 export default Register;
