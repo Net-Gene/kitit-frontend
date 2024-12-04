@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/Purchase.css';
+import BASE_URL from '../components/config'; 
 
 const Purchase = () => {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,7 @@ const Purchase = () => {
   // Hae tuotteet taustajärjestelmästä
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/products/get-products')
+    axios.get(`${BASE_URL}/api/products/get-products`)
       .then((response) => {
         setProducts(response.data);  // Säilytä tuotteet kunnossa
 
@@ -41,7 +42,7 @@ const Purchase = () => {
     const quantity = 1; // Olettaen, että käyttäjä lisää yhden kohteen kerrallaan, mutta voit muokata sitä käyttäjän syötteen perusteella.
 
 
-    axios.post('http://localhost:3001/api/products/add-to-cart', {
+    axios.post(`${BASE_URL}/api/products/add-to-cart`, {
       productId,
       quantity,
       userId

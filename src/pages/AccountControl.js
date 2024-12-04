@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import edit_pen_icon from '../assets/edit-pen-icon.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // useNavigoi useHistoryn tapahtuma
+import BASE_URL from '../components/config'; 
 
 
 
@@ -17,7 +18,7 @@ const AccountControl = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/auth/check-auth-token', {
+        const response = await axios.get(`${BASE_URL}/api/auth/check-auth-token`, {
           withCredentials: true, // Varmista, että evästeet lähetetään pyynnön mukana
 
 
@@ -32,7 +33,7 @@ const AccountControl = () => {
           alert('Käyttäjätietojen nouto epäonnistui');
         }
       } catch (error) {
-        alert('Virhe haettaessa käyttäjätietoja: ', error);
+        alert('Virhe haettaessa käyttäjätietoja: '+ error);
       }
     };
 
@@ -57,7 +58,7 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.post('http://localhost:3001/api/user/update-username', 
+        const response = await axios.post(`${BASE_URL}/api/auth/update-username`, 
           { username: userData.username, userId }
         );
 
@@ -67,7 +68,7 @@ const AccountControl = () => {
           alert('Käyttäjätunnuksen päivittäminen epäonnistui');
         }
       } catch (error) {
-        alert('Virhe päivitettäessä käyttäjätunnusta: ', error);
+        alert('Virhe päivitettäessä käyttäjätunnusta: ' + error);
       }
   };
 
@@ -77,7 +78,7 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.post('http://localhost:3001/api/user/update-password', 
+        const response = await axios.post(`${BASE_URL}/api/user/update-password`, 
           { password: userData.password, userId }
         );
 
@@ -87,7 +88,7 @@ const AccountControl = () => {
         alert('Salasanan päivitys epäonnistui');
       }
     } catch (error) {
-      alert('Virhe salasanan päivityksessä: ', error);
+      alert('Virhe salasanan päivityksessä: ' + error);
     }
   };
 
@@ -106,7 +107,7 @@ const AccountControl = () => {
     }
   
     try {
-      const response = await axios.post('http://localhost:3001/api/user/update-email', 
+      const response = await axios.post(`${BASE_URL}/api/user/update-email`, 
         { email: userData.email, userId }
       );
   
@@ -116,13 +117,13 @@ const AccountControl = () => {
         alert('Sähköpostin päivittäminen epäonnistui');
       }
     } catch (error) {
-      alert('Virhe päivitettäessä sähköpostia: ', error);
+      alert('Virhe päivitettäessä sähköpostia: '+ error);
     }
   };
   
   const clearCookie = async () => {
     try {
-      await axios.post('http://localhost:3001/api/auth/clearCookie', {}, { withCredentials: true })
+      await axios.post(`${BASE_URL}/api/auth/clearCookie`, {}, { withCredentials: true })
 
       alert('"Cookies" tyhjennetty onnistuneesti!');
       navigate('/'); // Käytä navigointia ohjataksesi kirjautumissivulle
@@ -138,7 +139,7 @@ const AccountControl = () => {
       return;
     }
       try {
-        const response = await axios.delete('http://localhost:3001/api/user/delete-account', {
+        const response = await axios.delete(`${BASE_URL}/api/user/delete-account`, {
           data: { userId }, 
         });
   
@@ -153,7 +154,7 @@ const AccountControl = () => {
         alert('Tilin poistaminen epäonnistui');
       }
     } catch (error) {
-      alert('Virhe poistettaessa tiliä: ', error);
+      alert('Virhe poistettaessa tiliä: '+ error);
     }
   };
 

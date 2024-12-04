@@ -3,6 +3,7 @@ import logo from '../assets/Logo.png'
 import axios from "axios";
 import Button from "../components/Button";
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from './config'; 
 
 const Header = () => {
   const navigate = useNavigate(); // Initialize the navigate function
@@ -10,7 +11,7 @@ const Header = () => {
 
   const logOut = async () => {
     try {
-      await axios.post('http://localhost:3001/api/auth/clearCookie', {}, { withCredentials: true })
+      await axios.post(`${BASE_URL}/api/auth/clearCookie`, {}, { withCredentials: true })
 
       alert('Kirjauduttu ulos onnistuneesti!');
       navigate('/'); // Use navigate to redirect to the login page

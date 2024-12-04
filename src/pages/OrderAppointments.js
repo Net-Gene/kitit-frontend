@@ -5,6 +5,7 @@ import "../styles/OrderAppointments.css";
 
 import Button from "../components/Button";
 import axios from "axios";
+import BASE_URL from '../components/config'; 
 
 const OrderAppointments = () => {
   const [date, setDate] = useState(new Date()); // Valittu päivämäärä
@@ -59,7 +60,7 @@ const OrderAppointments = () => {
       const formattedDate = selectedDate.toISOString().split("T")[0];
 
       const response = await axios.get(
-        `http://localhost:3001/api/appointments/reserved-appointments?date=${formattedDate}`
+        `${BASE_URL}/api/appointments/reserved-appointments?date=${formattedDate}`
       );
 
     // Jos varattuja paikkoja ei ole, aseta tyhjä joukko
@@ -130,7 +131,7 @@ const OrderAppointments = () => {
       // Lähetä tiedot API:lle
 
 
-      await axios.post("http://localhost:3001/api/appointments/book-appointment", {
+      await axios.post(`${BASE_URL}/api/appointments/book-appointment`, {
         date: formattedDate,
         user_id: userId, // Use the fetched user ID
         start_time: formattedStartTime,

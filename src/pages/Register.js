@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Register.css';
+import BASE_URL from '../components/config'; 
 
 const Register = () => {
 
@@ -22,7 +23,7 @@ const Register = () => {
       return;
     }
     try {
-      await axios.post('http://localhost:3001/api/auth/register', { username, password }, { withCredentials: true });
+      await axios.post(`${BASE_URL}/api/auth/register`, { username, password }, { withCredentials: true });
       alert('Rekisteröityminen onnistui!');
       navigate('/'); // Vie login sivulle onnistuessa
     } catch (error) {
