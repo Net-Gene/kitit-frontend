@@ -82,7 +82,7 @@ const AccountControl = () => {
         );
 
       if (response.status === 200) {
-        console.log('Salasana päivitetty onnistuneesti');
+        alert('Salasana päivitetty onnistuneesti');
       } else {
         alert('Salasanan päivitys epäonnistui');
       }
@@ -143,7 +143,7 @@ const AccountControl = () => {
         });
   
       if (response.status === 200) {
-        console.log('Tilin poistaminen onnistui');
+        alert('Tilin poistaminen onnistui');
         // Siirry kotisivulle tilin poistamisen jälkeen
 
 

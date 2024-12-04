@@ -160,10 +160,8 @@ const ShoppingCart = () => {
                         <p>Tilauksesi on käsitelty. </p>
                         <p>Kierrätit vastuullisesti, kiitos ostoksista kanssamme!</p>
                     </div>
-                    <a href="/home">
-                        <button className="back-btn">&larr; Etusivulle</button>
-                    </a>
-                </div>
+                    <a href="/home"><button className="back-btn"><i class="fa-solid fa-arrow-left"></i></button></a>
+                    </div>
             )}
         </div>
     );
