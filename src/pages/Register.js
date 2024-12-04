@@ -27,6 +27,7 @@ const Register = () => {
       await axios.post(`${BASE_URL}/api/auth/register`, { username, password }, { withCredentials: true });
       alert('Rekisteröityminen onnistui!');
       navigate('/'); // Vie login sivulle onnistuessa
+
     } catch (error) {
       alert('Rekisteröinnin aikana tapahtui virhe.');
       console.error('Registration error:', error);
@@ -38,9 +39,10 @@ const Register = () => {
     return (
     // Pääsäiliö register-komponentille
 
+
     <div class="register">
       
-      {/* Otsikko-osio */}
+      {/* Otsikko osio */}
       <div class="register-form">
         <h3>Rekisteröidy</h3>
         {error && <p className="error">{error}</p>}
@@ -59,5 +61,6 @@ const Register = () => {
 };
 
 // register-komponentin vieminen käytettäväksi muissa sovelluksen osissa
+
 
 export default Register;

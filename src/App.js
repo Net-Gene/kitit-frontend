@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import PrivateRoute from './components/PrivateRoute';
 
 
-// Import pages and header/footer components
+// Tuo sivut ja ylä-/alatunnistekomponentit
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Register from './pages/Register';
@@ -14,7 +15,8 @@ import Footer from './components/Footer';
 import OrderAppointments from './pages/OrderAppointments';
 import Purchase from './pages/Purchase';
 import ShoppingCart from './pages/ShoppingCart';
-// Import footer styles
+// Tuo alatunnisteen tyylejä
+
 import './styles/Footer.css';
 
 
@@ -25,16 +27,16 @@ function AppContent() {
 
   return (
     <>
-      {/* Render Header conditionally if not on login or register pages */}
+      {/* Renderöi otsikko ehdollisesti, jos ei kirjautumis-tai rekisteröintisivuilla */}
       {!isAuthPage && <Header />}
 
-      {/* Define routes */}
+      {/* Määritä reitit */}
       <Routes>
-        {/* Public Routes */}
+        {/* Julkiset reitit */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Protected Routes */}
+        {/* Suojatut reitit */}
         <Route element={<PrivateRoute />}>
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -46,7 +48,7 @@ function AppContent() {
         </Route>
       </Routes>
 
-      {/* Render Footer conditionally if not on login or register pages */}
+      {/* Piirrä alatunniste ehdollisesti, jos se ei ole kirjautumis-tai rekisteröintisivuilla */}
       {!isAuthPage && <Footer />}
     </>
   );
@@ -54,7 +56,8 @@ function AppContent() {
 
 function App() {
   return (
-    // Wrap the entire app in a router to enable routing
+    // Kääri koko sovellus reitittimeen ottaaksesi reitityksen käyttöön
+
     <Router>
       <AppContent />
     </Router>

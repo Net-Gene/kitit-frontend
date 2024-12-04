@@ -10,29 +10,29 @@ on:
     types: [created]
 
 jobs:
-  # Job to install dependencies and run tests
+  # Riippuvuuksien asennus ja testien suorittaminen
   test:
     runs-on: ubuntu-latest
     steps:
-      # Step 1: Check out the code
+      # Vaihe 1: Tarkista koodi
       - name: Check out code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
+      # Vaihe 2: Määritä Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # Step 3: Install dependencies
+      # Vaihe 3: Asenna riippuvuudet
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run tests
+      # Vaihe 4: Suorita testit
       - name: Run tests
         run: npm test
 
-  # Job to build the frontend application
+  # Työ frontend-sovelluksen rakentamiseen
   build:
     needs: test
     runs-on: ubuntu-latest
@@ -51,14 +51,14 @@ jobs:
       - name: Build the application
         run: npm run build
 
-      # Step to cache the build artifact for deployment
+      # Tallenna koontiartefakti välimuistiin käyttöönottoa varten
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
           name: build
           path: build/
 
-  # Job to publish to GitHub Pages or another deployment target
+  # GitHub-sivuilla tai muussa käyttöönottokohteessa julkaistava työ
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -68,7 +68,7 @@ jobs:
         with:
           name: build
 
-      # Example deployment to GitHub Pages (adjust based on deployment target)
+      # Esimerkki käyttöönotosta GitHub-sivuille (säädä käyttöönottotavoitteen mukaan)
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

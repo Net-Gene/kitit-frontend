@@ -12,31 +12,40 @@ const OrderAppointments = () => {
   const [date, setDate] = useState(new Date()); // Valittu päivämäärä
 
 
+
   const [reservedDates, setReservedDates] = useState([]); // Päivämäärät jo varattu
+
 
 
   const [showTimeInput, setShowTimeInput] = useState(false); // Näytä/piilota ajan syöttölomake
 
 
+
   const [startTime, setStartTime] = useState(""); // Aloitusajan syöttö
 
 
+
   const [endTime, setEndTime] = useState(""); // Päättymisajan syöttö
-  const [userId, setUserId] = useState(null); // User ID state
+
+  const [userId, setUserId] = useState(null); // Käyttäjätunnuksen tila
+
 
 
   // Hae varatut päivämäärät taustajärjestelmästä
 
 
+
   const [loading, setLoading] = useState(false);
 
-   // Fetch user ID on component mount
+   // Hae käyttäjätunnus komponenttiasennuksesta
+
    useEffect(() => {
     axios
       .get(`${BASE_URL}/api/auth/check-auth-token`, { withCredentials: true })
       .then((response) => {
         console.log('Fetched User ID:', response.data.userId);
-        setUserId(response.data.userId); // Store user ID
+        setUserId(response.data.userId); // Kaupan käyttäjätunnus
+
       })
       .catch((error) => {
         console.error('Error fetching user ID:', error);
@@ -48,14 +57,18 @@ const OrderAppointments = () => {
      setLoading(true); // Aloita lataaminen
 
 
+
     try {
       // Säädä valittua päivämäärää lisäämällä 2 tuntia
+
 
 
       selectedDate.setHours(selectedDate.getHours() + 2); // Lisää 2 tuntia vastaamaan aikavyöhykettä
 
 
+
       // Muotoile päivämäärä muotoon "vvvv-KK-pp"
+
 
 
       const formattedDate = selectedDate.toISOString().split("T")[0];
@@ -65,6 +78,7 @@ const OrderAppointments = () => {
       );
 
     // Jos varattuja paikkoja ei ole, aseta tyhjä joukko
+
 
      const reservedSlotsWithDate = response.data.reservedSlots.map((slot) => ({
       ...slot,
@@ -77,11 +91,14 @@ const OrderAppointments = () => {
     } finally {
       setLoading(false); // Lopeta lataus
 
+
     }
   }, []); // Tyhjä riippuvuustaulukko, joten se luodaan kerran
 
 
+
   // useEffect hook noutaa varatut päivämäärät, kun komponentti latautuu
+
 
 
   useEffect(() => {
@@ -91,16 +108,21 @@ const OrderAppointments = () => {
   }, [date, fetchReservedDates]);  // Suorita uudelleen aina, kun "päivämäärä" muuttuu
 
 
+
   // Käsittele päivämäärän muutos kalenterissa
+
 
 
   const handleDateChange = (selectedDate) => {
     // Ohita nouto, jos valittu päivämäärä on sama kuin nykyinen päivämäärä
 
+
     if (selectedDate.toDateString() !== date.toDateString()) {
       setDate(new Date(selectedDate)); // Päivitä tila oikealla päivämäärällä
 
+
       fetchReservedDates(selectedDate); // Hae varatut päivämäärät valitulle päivälle
+
 
     }
   };
@@ -120,21 +142,26 @@ const OrderAppointments = () => {
       // Varmista, että ajat ovat oikeassa muodossa: HH:MM:00
 
 
+
       const formattedStartTime = `${startTime}:00`;
       const formattedEndTime = `${endTime}:00`;
 
       // Käytä päivämäärälle ISO-merkkijonomuotoa (vvvv-kk-pp)
 
 
+
       const formattedDate = date.toISOString().split("T")[0]; // Hanki päiväosa (vvvv-kk-pp)
+
 
 
       // Lähetä tiedot API:lle
 
 
+
       await axios.post(`${BASE_URL}/api/appointments/book-appointment`, {
         date: formattedDate,
-        user_id: userId, // Use the fetched user ID
+        user_id: userId, // Käytä haettua käyttäjätunnusta
+
         start_time: formattedStartTime,
         end_time: formattedEndTime,
       });
@@ -142,11 +169,13 @@ const OrderAppointments = () => {
       // Ilmoita käyttäjälle, että tapaaminen on tallennettu
 
 
+
       alert(
         `Tapaaminen tallennettu ${formattedDate} ajalta ${formattedStartTime} -${formattedEndTime}`
       );
 
       // Päivitä paikallinen osavaltio vastaamaan varattua päivämäärää
+
 
 
       setReservedDates((prev) => [
@@ -157,9 +186,11 @@ const OrderAppointments = () => {
       // Piilota ajansyöttölomake
 
 
+
       setShowTimeInput(false);
     } catch (error) {
       // Tarkista, onko virhevastaus olemassa ja onko siinä 409-tilakoodi
+
 
       if (error.response && error.response.status === 409) {
         alert("Aika on jo varattu.");
@@ -173,6 +204,7 @@ const OrderAppointments = () => {
   // Tarkista, onko päivämäärä jo varattu
 
 
+
   const isDateReserved = (currentDate) =>
     reservedDates.some(
       ({ date: reservedDate }) =>
@@ -184,7 +216,9 @@ const OrderAppointments = () => {
       // Vertaa pelipaikan päivämäärää valittuun päivämäärään
 
 
+
       return slot.date === date.toISOString().split("T")[0]; // Varmista, että päivämäärä on samassa muodossa
+
 
     });
   };
@@ -202,9 +236,12 @@ const OrderAppointments = () => {
           value={date}
           minDate={new Date()} // Estä menneet päivämäärät
 
+
           locale="fi-FI" // Aseta kieli-asetus yhdenmukaista päivämäärän muotoilua varten
 
+
           tileDisabled={({ date }) => isDateReserved(date) || loading} // Poista laatta käytöstä, jos se on varattu tai ladataan
+
 
           />
         <p>Valittu päivämäärä: {date.toLocaleDateString("fi-FI")}</p>

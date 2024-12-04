@@ -16,6 +16,7 @@ const ShoppingCart = () => {
 
     useEffect(() => {
         // Hae tilaukset taustajärjestelmästä, kun komponentti on asennettu
+
         const fetchOrders = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/api/products/get-orders`, { withCredentials: true });
@@ -39,6 +40,7 @@ const ShoppingCart = () => {
 
 
     // tuotteen poisto
+
     const removeProduct = async (productId, orderId) => {
         try {
             const response = await axios.delete(`${BASE_URL}/api/products/remove-from-cart`, {
@@ -76,7 +78,8 @@ const ShoppingCart = () => {
     
             if (response.status === 200) {
                 alert('Ostos suoritettu onnistuneesti');
-                setCartItems([]); // Clear the cart
+                setCartItems([]); // Tyhjennä kärry
+
                 setIsPurchaseSuccessful(true);
             } else {
                 alert(response.data.message || 'Ostoksen suorittaminen epäonnistui');

@@ -6,7 +6,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import BASE_URL from './config'; 
 
 const Header = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate(); // Alusta navigointitoiminto
+
 
 
   const logOut = async () => {
@@ -14,7 +15,8 @@ const Header = () => {
       await axios.post(`${BASE_URL}/api/auth/clearCookie`, {}, { withCredentials: true })
 
       alert('Kirjauduttu ulos onnistuneesti!');
-      navigate('/'); // Use navigate to redirect to the login page
+      navigate('/'); // Käytä navigointia ohjataksesi kirjautumissivulle
+
     } catch (error) {
       alert(`Virhe kirjautumisessa ulos: ${error.response?.data?.message || error.message}`);
     }
@@ -32,7 +34,7 @@ const Header = () => {
         </Button>
       </div>
 
-       {/* Navigation menu */}
+       {/* Navigointivalikko */}
        <nav className="navbar">
         <ul className="nav-links">
           <li><Link to="/home">Etusivu</Link></li>

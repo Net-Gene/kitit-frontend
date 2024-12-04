@@ -1,7 +1,9 @@
 module.exports = {
     presets: [
-      "@babel/preset-env", // For transforming modern JavaScript
-      "@babel/preset-react" // For transforming React JSX
+      "@babel/preset-env", // Modernin JavaScriptin muuttamiseen
+
+      "@babel/preset-react" // React JSX:n muuntamiseen
+
     ]
 };
   

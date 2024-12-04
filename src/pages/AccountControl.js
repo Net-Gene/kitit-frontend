@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import edit_pen_icon from '../assets/edit-pen-icon.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';  // useNavigoi useHistoryn tapahtuma
+
 import BASE_URL from '../components/config'; 
 import { Link } from 'react-router-dom';
 
@@ -23,11 +24,13 @@ const AccountControl = () => {
           withCredentials: true, // Varmista, että evästeet lähetetään pyynnön mukana
 
 
+
         });
 
 
         if (response.status === 200) {
           setUserId(response.data.userId); // Olettaen, että taustajärjestelmä lähettää käyttäjätunnuksen, käyttäjätunnuksen, sähköpostin
+
 
 
         } else {
@@ -101,6 +104,7 @@ const AccountControl = () => {
   
     // Vahvista sähköpostin muoto käyttämällä yksinkertaista regex-mallia
 
+
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     if (!emailPattern.test(userData.email)) {
       alert('Sähköposti ei ole kelvollisessa muodossa.');
@@ -130,6 +134,7 @@ const AccountControl = () => {
       navigate('/'); // Käytä navigointia ohjataksesi kirjautumissivulle
 
 
+
     } catch (error) {
       alert(`Virhe "Cookies" tyhjennyksessä : ${error.response?.data?.message || error.message}`);
     }
@@ -147,6 +152,7 @@ const AccountControl = () => {
       if (response.status === 200) {
         alert('Tilin poistaminen onnistui');
         // Siirry kotisivulle tilin poistamisen jälkeen
+
 
 
         clearCookie();
