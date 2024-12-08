@@ -1,0 +1,73 @@
+.cart-page {
+  padding: 20px;
+  text-align: center;
+  display: flex; /* Ottaa käyttöön flexbox-asettelun */
+  flex-direction: column;
+  justify-content: center; /* Keskittää sisällön pystysuoraan */
+  align-items: center; /* Keskittää sisällön vaakasuoraan */
+}
+
+.cart-page p {
+  padding: 20px;
+  text-align: center;
+}
+.cart-page .cart-items {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.remove-item {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.remove-item:hover {
+  background-color: #cc0000;
+}
+
+.confirm-purchase {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.confirm-purchase:hover {
+  background-color: #1e7e34;
+}
+.confirm-yes {
+  background-color: #51ff00a8;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+.confirm-no {
+  background-color: #f70000a4;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.confirm-page {
+  position: relative;
+}

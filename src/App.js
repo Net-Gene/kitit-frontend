@@ -1,43 +1,51 @@
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useLocation,
+} from "react-router-dom"; // Tuodaan React Routerin reitityskomponentit käyttöön
+import PrivateRoute from "./components/auth/PrivateRoute"; // Tuodaan oma komponentti suojattuja reittejä varten
 
+import "./styles/buttons.css"; // Tuodaan tyylit nappuloille
+import "./styles/backButton.css"; // Tuodaan tyylit takanappulalle
 
-// Tuo sivut ja ylä-/alatunnistekomponentit
+// Tuodaan sivut ja komponentit, jotka tullaan renderöimään reittien mukaan
+import Home from "./pages/Home/Home";
+import About from "./pages/About/About";
+import Register from "./pages/Register/Register";
+import Login from "./pages/Login/Login";
+import Services from "./pages/Services/Services";
+import AccountControl from "./pages/AccountControl/AccountControl";
+import Header from "./components/navigation/Header/Header"; // Tuodaan yläreunan navigointikomponentti
+import Footer from "./components/navigation/Footer/Footer"; // Tuodaan alatunnistekomponentti
+import OrderAppointments from "./pages/OrderAppointments/OrderAppointments";
+import Purchase from "./pages/Purchase/Purchase";
+import ShoppingCart from "./pages/ShoppingCart/ShoppingCart";
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Register from './pages/Register';
-import Login from './pages/Login';
-import Services from './pages/Services';
-import AccountControl from './pages/AccountControl';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import OrderAppointments from './pages/OrderAppointments';
-import Purchase from './pages/Purchase';
-import ShoppingCart from './pages/ShoppingCart';
-// Tuo alatunnisteen tyylejä
+// Tuo alatunnisteen tyylit
+import "./components/navigation/Footer/Footer.css";
 
-import './styles/Footer.css';
-
-
+// AppContent-komponentti on sovelluksen pääkomponentti, joka määrittää reitityksen ja renderöi sivuja
 function AppContent() {
-  const location = useLocation();
-  const isAuthPage = location.pathname === '/' || location.pathname === '/register';
-
+  const location = useLocation(); // Käytetään reititysinformaatiota nykyisestä reitistä
+  const isAuthPage = // Tarkistetaan, onko käyttäjä kirjautumis- tai rekisteröintisivulla
+    location.pathname === "/" || location.pathname === "/register";
 
   return (
     <>
-      {/* Renderöi otsikko ehdollisesti, jos ei kirjautumis-tai rekisteröintisivuilla */}
+      {/* Renderöi Header-komponentti vain, jos ei olla kirjautumis- tai rekisteröintisivulla */}
       {!isAuthPage && <Header />}
 
-      {/* Määritä reitit */}
+      {/* Määritetään reitit */}
       <Routes>
-        {/* Julkiset reitit */}
+        {/* Julkiset reitit: nämä ovat reittejä, jotka voi nähdä ilman kirjautumista */}
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
-        {/* Suojatut reitit */}
+        {/* Suojatut reitit: nämä reitit ovat suojattuja ja vaativat kirjautumisen */}
         <Route element={<PrivateRoute />}>
+          {" "}
+          {/* PrivateRoute huolehtii kirjautumisen tarkistamisesta */}
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/orderAppointments" element={<OrderAppointments />} />
@@ -48,7 +56,7 @@ function AppContent() {
         </Route>
       </Routes>
 
-      {/* Piirrä alatunniste ehdollisesti, jos se ei ole kirjautumis-tai rekisteröintisivuilla */}
+      {/* Renderöi Footer-komponentti vain, jos ei olla kirjautumis- tai rekisteröintisivulla */}
       {!isAuthPage && <Footer />}
     </>
   );
@@ -56,8 +64,7 @@ function AppContent() {
 
 function App() {
   return (
-    // Kääri koko sovellus reitittimeen ottaaksesi reitityksen käyttöön
-
+    // Kääritään koko sovellus Router-komponenttiin, jotta reititys toimii
     <Router>
       <AppContent />
     </Router>

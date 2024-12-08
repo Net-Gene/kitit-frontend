@@ -1,0 +1,51 @@
+.accountControl {
+  background-color: #ffffff; /* Aseta valkoinen taustaväri */
+  color: rgb(5, 5, 5); /* Aseta tumma tekstin väri */
+  flex: auto; /* Anna elementin kasvaa ja täyttää käytettävissä oleva tila */
+  align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+}
+
+.edit-pen-icon-div i {
+  font-size: 50px;
+}
+
+.edit_username_header,
+.edit_password_header,
+.edit_email_header {
+  text-align: center; /* Tasaa sisältö keskelle */
+  padding: 20px; /* Lisää sisällön ympärille 20 pikselin täyte */
+}
+
+.edit_username_textfield,
+.edit_password_textfield,
+.edit_email_textfield {
+  display: flex; /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+  justify-content: center; /* Keskitetään sisältö vaakasuunnassa */
+  gap: 30px; /* Lisätään objecteille 30px väliä toisistaan*/
+  margin-bottom: 20px; /* Lisätään marginaali tämän alle*/
+}
+
+.save_username_button,
+.save_password_button,
+.save_email_button {
+  display: flex; /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+  justify-content: center; /* Keskitetään sisältö vaakasuunnassa */
+  gap: 30px; /* Lisätään objecteille 30px väliä toisistaan*/
+  margin-bottom: 100px; /* Lisätään marginaali tämän alle*/
+}
+
+.username-input,
+.password-input,
+.email-input {
+  text-align: left; /* Tasaa sisältö vasemmalle */
+  padding: 20px;
+  height: 10px;
+  margin-left: 90px;
+}
+
+.delete_account_button_div {
+  display: flex; /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+  justify-content: center; /* Keskitetään sisältö vaakasuunnassa */
+  gap: 30px;
+  margin-bottom: 200px; /* Lisätään marginaali tämän alle*/
+}

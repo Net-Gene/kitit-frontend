@@ -49,19 +49,37 @@ frontend/
 ├── public/
 │   └── index.html
 ├── src/
-│   ├── assets/ // Kuvia ja muita staattisia resursseja
-│   ├── components/ // Yhteiset käyttöliittymäkomponentit
-│   │   ├── PrivateRoute.js // Reittien suojaukset
-│   │   ├── config.js // Konfiguraatiot, kuten API:n perus-URL
-│   │   ├── Header.js // Navigointipalkki/Yläpalkki
-│   │   ├── Footer.js // Alapalkki 
-│   ├── pages/ // Erilliset sivut, kuten Etusivu ja Ostoskori 
-│   ├── services/ // API-kutsut ja liiketoimintalogiikka
-│   ├── styles/ // Tyylitiedostot
-│   ├── App.js  // Sovelluksen päälogiikka
-│   ├── index.js // Sovelluksen sisäänkäyntipiste
-│   └── context/ // (Ei käytössä)
-├── package.json // Pakettien määrittelyt
+│   ├── assets/          // Kuvia ja muita staattisia resursseja
+│   ├── components/      // Yhteiset käyttöliittymäkomponentit
+│   │   ├── navigation/
+│   │   │   ├── Header.js // Navigointipalkki/Yläpalkki
+│   │   │   └── Footer.js // Alapalkki
+│   │   ├── auth/
+│   │   │   └── PrivateRoute.js // Reittien suojaukset
+│   │   ├── shared/
+│   │       └── Button.js
+│   ├── config/          // Konfiguraatiot, kuten API:n perus-URL
+│   │   └── config.js
+│   ├── context/         // (Ei käytössä)
+│   ├── hooks/           // Mukautetut useMethodit
+│   │   └── useFetchUserAuth.js
+│   ├── pages/           // Erilliset sivut, kuten Etusivu ja Ostoskori
+│   │   ├── Home/
+│   │   │   ├── Home.js
+│   │   │   └── Home.css
+│   │   ├── Cart/
+│   │   │   ├── Cart.js
+│   │   │   └── Cart.css
+│   │   ├── ...
+│   │   ...
+│   ├── services/        // API-kutsut ja liiketoimintalogiikka (ei käytössä)
+│   │   └── api.js
+│   ├── styles/          // Tyylitiedostot
+│   │   ├── backButton.css // Takaisin nappi css komponentti
+│   │   └── buttons.css // Nappi css komponentit
+│   ├── App.js           // Sovelluksen päälogiikka
+│   ├── index.js         // Sovelluksen sisäänkäyntipiste
+├── package.json         // Pakettien määrittelyt
 ```
 
 
