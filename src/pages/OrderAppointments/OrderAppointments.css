@@ -1,0 +1,142 @@
+/* Tapaamissivun yleiset tyylit */
+.orderAppointments {
+  background-color: #ffffff;
+  color: rgb(5, 5, 5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+/* Logon kuva */
+.logo_with_catchphrase-img {
+  height: 150px;
+}
+
+/* Kalenteri Säiliö */
+.calendar-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Reagoi kalenteriin */
+.react-calendar {
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Kalenteriruutu (päivä) */
+.react-calendar__tile {
+  padding: 15px 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Aktiivinen laatatyyli */
+.react-calendar__tile--active {
+  background-color: #006edc;
+  color: white;
+}
+
+/* Kalenterin navigointipainikkeet */
+.react-calendar__navigation button {
+  background-color: transparent;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Hover Effect kalenteriruutuun */
+.react-calendar__tile--hover {
+  background-color: #f0f0f0;
+}
+
+/* Tapaaminen-painikkeen asettelu */
+.make_appointment_div {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 200px;
+  padding: 40px 0px;
+}
+
+/* Poistetut painiketyylit */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Valittu paikka näyttö */
+.selected-slot {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Valitun paikan tiedot */
+.selected-slot-info {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Varatut Slots -osasto */
+.reserved-slots {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #f1f1f1;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+/* Varattujen kolikkopelien luettelo */
+.reserved-slots ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Varattu paikkaluettelon kohde */
+.reserved-slots li {
+  background-color: #a39d9d5e;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 16px;
+}
+/* Cancel button */
+.cancel-button {
+  background-color: #74252d;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Time input form */
+.time-input-form {
+  margin-top: 20px;
+}
+
+.time-input-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.time-input-form input[type="time"] {
+  padding: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.time-form-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}

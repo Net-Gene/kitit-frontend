@@ -1,0 +1,71 @@
+.register {
+  background-color: #ffffff; /* Aseta valkoinen taustaväri */
+  color: rgb(5, 5, 5); /* Aseta tumma tekstin väri */
+  align-content: space-around; /* Tilan sisältö tasaisesti elementin sisällä */
+  padding: 100px 0; /* Lisää 20px pystysuora pehmuste */
+}
+
+.register-header {
+  justify-content: space-evenly; /* Aseta kohteet tasaisesti, ensimmäinen ja viimeinen kohde reunoilla */
+  text-align: center;
+}
+
+.register-form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.register-form h3 {
+  color: #333;
+  margin-bottom: 50px;
+  font-size: 30px;
+  font-family: "Sofia", sans-serif;
+}
+
+.register-form-box {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.register-form-box:focus {
+  outline: none;
+  background-color: #ffffff;
+  border: 1px solid #4a90e2;
+  box-shadow: 0 0 6px rgba(74, 144, 226, 0.5);
+}
+
+.register-form-confirm-div {
+  margin: 10px;
+}
+
+.login-link {
+  list-style: none; /* Poista luettelon oletustyyli */
+  justify-content: space-evenly; /* Aseta kohteet tasaisesti, ensimmäinen ja viimeinen kohde reunoilla */
+  display: flex; /* Käytä flexboxia vaakasuuntaiseen asetteluun */
+}
+
+.login-link p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}

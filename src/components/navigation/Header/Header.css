@@ -1,0 +1,58 @@
+.header {
+  display: flex; /* Flexbox asettelua varten */
+  justify-content: space-between; /* Tilaa ryhmien välillä */
+  align-items: center; /* Kohteet pystysuorassa keskellä */
+  padding: 20px 40px; /* Lisää pehmuste väliä varten */
+  background-color: #333; /* tumma tausta */
+  color: white; /* Tekstin väri */
+}
+
+/* Säiliö logolle ja "Kirjaudu Ulos" -linkille */
+.logo-container {
+  display: flex; /* Flex vaakasuuntaiseen asetteluun */
+  align-items: center; /* Pystysuoraan keskellä logo ja linkki */
+  gap: 20px; /* Tila logon ja "Kirjaudu Ulos" -linkin välissä */
+}
+
+/* Logon muotoilu */
+.logo-img {
+  height: 50px; /* Aseta logon korkeus */
+}
+
+/* Navigointipalkki */
+.navbar {
+  display: flex; /* Joustava asettelu navigointilinkkejä varten */
+}
+
+/* Navigointilinkkien muotoilu */
+.nav-links {
+  list-style: none; /* Poista luettelon oletustyyli */
+  margin: 0; /* Poista oletusmarginaali */
+  padding: 0; /* Poista oletustäyte */
+  display: flex; /* Flex vaakasuuntaisille linkeille */
+  align-items: center; /* Keskitä linkit pystysuoraan */
+}
+
+/* Yksittäisten linkkien muotoilu */
+.nav-links li {
+  margin: 0 20px; /* Lisää tilaa linkkien väliin */
+}
+
+/* Hover-vaikutus linkeissä */
+.nav-links li:hover {
+  color: #00bcd4; /* Vaihda väriä osoitin */
+}
+
+.header-icon {
+  font-size: 25px; /* Aseta kuvakkeen koko */
+}
+.header-icon :hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.4);
+}
+
+/* Poistetut painiketyylit */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

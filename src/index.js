@@ -1,19 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { UserProvider } from './context/UserContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { UserProvider } from "./context/UserContext";
 
+// Luodaan "root"-elementti, joka on juurielementti (div#root) HTML-tiedostossa.
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// React-sovelluksen renderöinti. UserProvider-komponentti mahdollistaa käyttäjätietojen jakamisen koko sovelluksessa.
 root.render(
   <UserProvider>
-    <App />
-  </UserProvider>
+    <App />{" "}
+    {/* Sovelluksen pääkomponentti, joka sisältää kaikki alikomponentit */}
+  </UserProvider>,
 );
 
-// Jos haluat aloittaa suorituskyvyn mittaamisen sovelluksessasi, 
-// välitä funktio tulosten kirjaamiseksi (esimerkiksi reportWebVitals(console.log)) 
-// tai lähetä se analytiikkapäätepisteeseen. Lue lisää: https://bit.ly/CRA-vitals
+// Tämä funktio mittaa sovelluksen suorituskykyä ja voi lähettää sen ulkoisiin analytiikkatyökaluihin.
+// Jos et tarvitse tätä, voit jättää tämän pois tai määrittää omaa mittausta.
 reportWebVitals();
