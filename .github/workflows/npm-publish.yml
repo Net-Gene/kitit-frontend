@@ -1,5 +1,7 @@
 name: Frontend CI/CD
 
+permissions:
+  contents: write
 on:
   push:
     branches: [ "main" ]
@@ -53,7 +55,7 @@ jobs:
 
       # Tallenna koontiartefakti välimuistiin käyttöönottoa varten
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build
           path: build/
@@ -64,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download build artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: build
 
@@ -72,5 +74,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.MY_CUSTOM_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: build/
